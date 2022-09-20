@@ -15,17 +15,28 @@
 
   <link rel="stylesheet" type="text/css" href="/web/static/script.css">
   <script src="/web/static/javascript.js"></script>
-
   <title>Document</title>
-  hi
 </head>
 <body>
-  <form method="post" action="/register">
-    <input type="text" name="name" placeholder="이름"></input> <br>
-    <input type="text" name="nickname" placeholder="닉네임"></input> <br>
-    <input type="email" name="email" placeholder="이메일"></input> <br>
-    <input type="password" name="password" placeholder="비밀번호"></input> <br>
-    <input id="submit_button" type="submit" onclick='submit()'>저장하기</input>
-  </form> 
+  index 페이지<hr>
+
+
+  {% if login == TRUE %}
+    <h3> 로그인에 성공했습니다 {{username}}님 어서오세요!</h3>
+    <a href="/logout">로그아웃</a>
+  {%else%}
+    <form method="GET" action= "/login">
+      <input type="email" name="email" placeholder="이메일"></input> <br>
+      <input type="password" name="password" placeholder="비밀번호"></input> <br>
+      <input id="submit_button" type="submit" onclick='submit()'></input>
+    </form>
+  {%endif%} 
+
+
+
+  <a href="/user_list">유저리스트 확인</a><hr>
+  <a href="/login">로그인</a><hr>
+  <a href="/register_page">회원가입</a>
+
 </body>
 </html>
