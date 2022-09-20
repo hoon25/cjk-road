@@ -1,6 +1,11 @@
+
 from crypt import methods
 import json
-from flask import Flask, render_template, request, jsonify, redirect, session
+from flask import Flask, render_template, request, jsonify, flash, redirect, session
+
+from web.common.mongo_connector import get_db, get_conn_with_collections
+from web.common.response_factory import get_success_json, get_failure_json
+from web.common.custom_logger import get_custom_logger
 
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
@@ -8,6 +13,9 @@ db = client.web
 
 app = Flask(__name__)
 app.secret_key = '111'
+
+db = get_db()
+logger = get_custom_logger("web")
 
 @app.route('/')
 def home():
@@ -69,7 +77,19 @@ def user_list():
     return jsonify({'result':'success', 'msg':'Connected', 'data': user_list})
 
 
+@app.route('/rest/<search_univ>', methods=['GET'])
+def restaurant_get(search_univ):
+    try:
+        rest_list = list(db.restaurant.find({"university_name": search_univ}))
+        for rest in rest_list:
+            rest['_id'] = str(rest['_id'])
+        result = get_success_json("검색 성공", rest_list)
+        logger.info(result)
+        return render_template('cards.html', result = result)
+
+    except:
+        flash("등록되지않은 대학교입니다.")
+        return render_template('cards.html', result = get_failure_json("검색 실패"))
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
-
- 
