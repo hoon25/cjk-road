@@ -14,9 +14,12 @@ password = "jungle"
 
 @app.route('/')
 def home():
+    # print(session.get("userID"))
     if "userID" in session:
+        print(session.get("hi"))
         return render_template("index.html", email = session.get("userID"), login = True)
     else:
+        print(session.get("userID"))
         return render_template("index.html", login = False)
 
 @app.route('/login', methods=["GET"])
@@ -26,9 +29,9 @@ def login():
     password = request.args.get("password")
     
     if email == email and password == password:
-        print(email, password)
         session["userID"] = email
-        return redirect('/login')
+        # print(session["userID"])
+        return redirect('/')
     else:
         return redirect('/')
         
@@ -36,7 +39,8 @@ def login():
    
 @app.route("/logout")
 def logout():
-    pass
+    session.pop("userID")
+    return redirect('/')
 
 @app.route('/register_page', methods=['GET'])
 def register_page():

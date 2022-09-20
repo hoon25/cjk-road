@@ -21,9 +21,9 @@
   index 페이지<hr>
 
 
-  {% if login == TRUE %}
-    <h3> 로그인에 성공했습니다 {{username}}님 어서오세요!</h3>
-    <a href="/logout">로그아웃</a>
+  {% if login == True %}
+    <h3> 로그인에 성공했습니다 {{email}}님 어서오세요!</h3>
+    <a href="/logout">로그아웃</a> <hr>
   {%else%}
     <form method="GET" action= "/login">
       <input type="email" name="email" placeholder="이메일"></input> <br>
