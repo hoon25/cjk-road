@@ -18,25 +18,18 @@
   <title>Document</title>
 </head>
 <body>
-  index 페이지<hr>
-
-
   {% if login == True %}
     <h3> 로그인에 성공했습니다 {{email}}님 어서오세요!</h3>
     <a href="/logout">로그아웃</a> <hr>
   {%else%}
-    <form method="GET" action= "/login">
-      <input type="email" name="email" placeholder="이메일"></input> <br>
-      <input type="password" name="password" placeholder="비밀번호"></input> <br>
-      <input id="submit_button" type="submit" onclick='submit()'></input>
-    </form>
+    여기에 검색바 위치 (로그인 안했을때) <hr>
+    <a href="/login">로그인</a>
+    <a href="/register_page">회원가입</a>
   {%endif%} 
 
-
-
+  <br><br><br><br><br><br><br><br><br><br>
   <a href="/user_list">유저리스트 확인</a><hr>
-  <a href="/login">로그인</a><hr>
-  <a href="/register_page">회원가입</a>
+  
 
 </body>
 </html>

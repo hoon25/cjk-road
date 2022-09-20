@@ -9,9 +9,6 @@ db = client.web
 app = Flask(__name__)
 app.secret_key = '111'
 
-# email1 = "jungle@gmail.com"
-# password1 = "jungle"
-
 @app.route('/')
 def home():
     if "userID" in session:
@@ -19,14 +16,18 @@ def home():
     else:
         return render_template("index.html", login = False)
 
+
 @app.route('/login', methods=["GET"])
 def login():
+    return render_template("login.html")
+
+@app.route('/sign_in', methods=["GET"])
+def sign_in():
     email = request.args.get("email")
     password = request.args.get("password")
     user_info_db = db.web.find_one({"email" : email})
 
     if user_info_db is None:
-
         return redirect('/')
     else:
         db_email = user_info_db["email"]
@@ -35,12 +36,15 @@ def login():
             session["userID"] = email
             return redirect('/')
         else:
-            return redirect('/')
+            return redirect('/login')
         
 @app.route("/logout")
 def logout():
     session.pop("userID")
     return redirect('/')
+
+
+
 
 @app.route('/register_page', methods=['GET'])
 def register_page():
