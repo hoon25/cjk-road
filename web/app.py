@@ -66,7 +66,6 @@ def register():
 
 @app.route('/user_list', methods=["GET"])
 def user_list():
-    # db.web.drop()
     user_list = list(db.user.find({}, {'_id': 0 }))
     return jsonify({'result':'success', 'msg':'Connected', 'data': user_list})
 
