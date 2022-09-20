@@ -12,9 +12,10 @@ logger = get_custom_logger("crawl")
 driver = webdriver.Chrome()
 
 
-def main(url, key_word):
+def main(key_word):
     try:
         start_time = time.time()
+        url = "https://map.naver.com/v5/search"
         logger.info(f"검색 키워드 : {key_word}")
         driver.get(url)
         time_wait(10, 'div.input_box > input.input_search')
@@ -51,7 +52,7 @@ def main(url, key_word):
             store_link = f"https://map.naver.com/v5/search/{parse.quote(store_name)}/"
             logger.debug(store_link)
 
-            store_dict = {'store_name': store_name, 'store_star': store_star, 'store_link': store_link}
+            store_dict = {'university_name': key_word, 'store_name': store_name, 'store_star': store_star, 'store_link': store_link}
             store_dict_list.append(store_dict)
         return store_dict_list
     except:
@@ -88,8 +89,6 @@ def page_down(num):
 
 # 메인 함수
 if __name__ == "__main__":
-    url = "https://map.naver.com/v5/search"
     key_word = sys.argv[1]
-
-    main(url, key_word)
+    main(key_word)
 
