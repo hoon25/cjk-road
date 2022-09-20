@@ -41,10 +41,10 @@
       <div class="text-xl text-gray-800 font-bold">최정기로드</div>
 
       {% block nav %} {% endblock %}
-      <div class="flex items-center self-center">
-        {% if login == False %}
+      <div class="flex items-center self-center"> 
+        {% if not email %}
         <ul class="flex items-center space-x-6 mb-0">
-          <a href="#">
+          <a href="/login">
             <li
               class="font-semibold text-gray-800 px-3 py-1"
               style="border: 3px solid #fd0166; border-radius: 10px"
@@ -52,12 +52,13 @@
               로그인
             </li>
           </a>
-          <a href="">
+          <a href="/signin">
             <li
               class="font-semibold text-gray-800 px-3 py-1"
               style="border: 3px solid #fd0166; border-radius: 10px"
             >
               회원가입
+              
             </li>
           </a>
         </ul>
@@ -71,7 +72,7 @@
               {{email}}님
             </li>
           </a>
-          <a href="">
+          <a href="/logout">
             <li
               class="font-semibold text-gray-800 px-3 py-1"
               style="border: 3px solid #fd0166; border-radius: 10px"
