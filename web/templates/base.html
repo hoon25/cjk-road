@@ -36,9 +36,11 @@
   <body>
     <!-- header -->
     <nav
-      class="flex justify-between px-20 py-4 items-center bg-white self-center"
+      class="bg-white sticky top-0 z-50 flex justify-between px-20 py-4 items-center self-center"
     >
       <div class="text-xl text-gray-800 font-bold">최정기로드</div>
+
+      {% block nav %} {% endblock %}
       <div class="flex items-center self-center">
         <ul class="flex items-center space-x-6 mb-0">
           <a href="#">
@@ -61,33 +63,5 @@
       </div>
     </nav>
     {% block content %} {% endblock %}
-
-    <!-- footer -->
-
-    <!-- <footer
-      class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800"
-    >
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-        >© 2022
-        <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>.
-        All Rights Reserved.
-      </span>
-      <ul
-        class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
-      >
-        <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
-        </li>
-        <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-        </li>
-        <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
-        </li>
-        <li>
-          <a href="#" class="hover:underline">Contact</a>
-        </li>
-      </ul>
-    </footer> -->
   </body>
 </html>
