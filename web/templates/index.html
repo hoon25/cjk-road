@@ -34,7 +34,7 @@
     <title>Document</title>
   </head>
   <body>
-    {% extends "base.html" %} {% block content%}
+    {% extends "base.html" %} {% block content %}
 
     <div class="flex items-center justify-center">
       <img
@@ -67,56 +67,7 @@
         </div>
       </form>
     </div>
-    <!-- 맛집 list (DB에 있을 경우) -->
-    <ul class="card-list grid grid-cols-3 gap-4 m-20" id="card-list">
-      {% for _ in range(10) %}
 
-      <li>
-        <div
-          class="p-2 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800"
-          style="background-color: #fd0166"
-        >
-          <img
-            class="rounded-t-lg"
-            src="{{url_for('static', filename='src/img/sample.jpg')}}"
-            alt=""
-          />
-          <div class="p-2 bg-white rounded-t-none rounded-b-lg">
-            <div
-              class="card-top-info mb-2 flex justify-between self-center items-center"
-            >
-              <a href="#">
-                <p class="text-2xl mb-0 font-bold tracking-tight text-gray-800">
-                  새마을식당
-                </p>
-              </a>
-              <a href="#">즐겨찾기</a>
-            </div>
-
-            <div class="mb-2 scard-info-bottom flex justify-around">
-              <div class="naver-rate">
-                <span class="font-semibold" style="color: #00c73c">N</span>
-                <span>4.32 / 4.5</span>
-              </div>
-              <div class="cjk-rate">
-                <span class="font-semibold" style="color: #fd0166">C</span>
-                <span>3.4 / 4.5 (20)</span>
-              </div>
-              <a href="#">평점등록</a>
-            </div>
-          </div>
-        </div>
-      </li>
-
-      {% endfor %}
-    </ul>
-    <!-- 맛집 list (DB에 없을 경우) 
-    <div class="mt-10 flex items-center justify-center">
-      <div class="flex-col">
-        <p>와플대의 맛집이 등록되어 있지 않습니다.</p>
-        <p>등록 요청하시겠습니까?</p>
-      </div>
-    </div>-->
     {% endblock %}
   </body>
 </html>
