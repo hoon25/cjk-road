@@ -23,14 +23,18 @@ def restaurant_get(search_univ):
             rest['_id'] = str(rest['_id'])
         result = response_factory.get_success_json("검색 성공", rest_list)
         logger.info(result)
-        return render_template('cards.html', result = result)
+        print(type(result['data']))
+        return render_template('cards.html', restaurants = result['data'])
 
     except:
         flash("등록되지않은 대학교입니다.")
         return render_template('cards.html', result = response_factory.get_failure_json("검색 실패"))
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5500, debug=True)
+   app.secret_key = 'super secret key'
+   app.config['SESSION_TYPE'] = 'filesystem'
+   app.run('0.0.0.0', port=5500, debug=True)
+
 
 
 
