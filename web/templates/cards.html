@@ -37,16 +37,15 @@
 
     <!-- 맛집 list (DB에 있을 경우) -->
     <ul class="card-list grid grid-cols-3 gap-4 m-20" id="card-list">
-      {% for restaurant in result %}
-
-      <li>
+      {% for restaurant in restaurants %}
+      <li class="px-5 py-2">
         <div
-          class="p-2 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800"
+          class="p-2 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800"
           style="background-color: #fd0166"
         >
           <img
-            class="rounded-t-lg"
-            src="{{url_for('static', filename='src/img/sample.jpg')}}"
+            class="rounded-t-lg m-0 w-full"
+            src="{{restaurant.store_pic}}"
             alt=""
           />
           <div class="p-2 bg-white rounded-t-none rounded-b-lg">
@@ -64,7 +63,11 @@
             <div class="mb-2 scard-info-bottom flex justify-around">
               <div class="naver-rate">
                 <span class="font-semibold" style="color: #00c73c">N</span>
-                <span>{{restaurant.star}}/ 4.5</span>
+                <span>
+                  {% if restaurant.store_star == '0.0' %} 미등록 / 4.5 {% else
+                  %} {{restaurant.store_star}} / 4.5</span
+                >
+                {% endif %}
               </div>
               <div class="cjk-rate">
                 <span class="font-semibold" style="color: #fd0166">C</span>
