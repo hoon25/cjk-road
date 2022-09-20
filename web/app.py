@@ -9,34 +9,34 @@ db = client.web
 app = Flask(__name__)
 app.secret_key = '111'
 
-email = "jungle@gmail.com"
-password = "jungle"
+# email1 = "jungle@gmail.com"
+# password1 = "jungle"
 
 @app.route('/')
 def home():
-    # print(session.get("userID"))
     if "userID" in session:
-        print(session.get("hi"))
         return render_template("index.html", email = session.get("userID"), login = True)
     else:
-        print(session.get("userID"))
         return render_template("index.html", login = False)
 
 @app.route('/login', methods=["GET"])
 def login():
-    global email, password
     email = request.args.get("email")
     password = request.args.get("password")
-    
-    if email == email and password == password:
-        session["userID"] = email
-        # print(session["userID"])
+    user_info_db = db.web.find_one({"email" : email})
+
+    if user_info_db is None:
+
         return redirect('/')
     else:
-        return redirect('/')
+        db_email = user_info_db["email"]
+        db_password = user_info_db["password"]
+        if db_email == email and db_password == password:
+            session["userID"] = email
+            return redirect('/')
+        else:
+            return redirect('/')
         
-
-   
 @app.route("/logout")
 def logout():
     session.pop("userID")
@@ -53,14 +53,14 @@ def register():
     nickname = request.form["nickname"]
     session['email'] = request.form["email"]
     session['password'] = request.form["password"]
-    password_confrim = request.form["password_confirm"]
-    user_info = {"name": name, "nickname": nickname, "email": session['email'], "password": session['password'], "password_confirm": password_confrim}
+    user_info = {"name": name, "nickname": nickname, "email": session['email'], "password": session['password']}
     db.web.insert_one(user_info)
     return redirect ("/")
 
 
 @app.route('/user_list', methods=["GET"])
 def user_list():
+    # db.web.drop()
     user_list = list(db.web.find({}, {'_id': 0 }))
     return jsonify({'result':'success', 'msg':'Connected', 'data': user_list})
 
