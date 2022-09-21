@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Document</title>
   </head>
   <body>
@@ -36,14 +37,31 @@
         </div>
       </div>
     </div>
-    {% endblock %} {% block content %} {%if universities%} {% for university in
-    universities %}
+    {% endblock %} {% block content %}
+    <div class="ml-3 my-10 font-bold text-5xl">이번주에 등록 요청된 대학교</div>
+    <div id="university_board" class="flex justify-center">
+      {%if universities%}
+      <div
+        id="university_list"
+        class="w-1/4 p-3 flex justify-between self-center"
+        style="background-color: rgba(121, 117, 118, 0.4); border-radius: 10px"
+      >
+        <ul class="m-0">
+          {% for university in universities %}
 
-    <div>{{university.university_name}}</div>
+          <li class="text-4xl p-2">{{university.university_name}}</li>
 
-    {% endfor %} {% else %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% else %}
     <div>등록 요청된 대학교가 없습니다.</div>
 
-    {% endif %} {% endblock%}
+    {% endif %}
+    <div class="mt-10 flex justify-center">
+      <a href="/" class="text-xl" style="color: #fd0166">홈으로</a>
+    </div>
+    {% endblock%}
   </body>
 </html>
