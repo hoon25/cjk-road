@@ -91,11 +91,9 @@ def user_list():
 @app.route('/rest/<search_univ>', methods=['GET'])
 @jwt_required(['cookies'])
 def restaurant_get(search_univ):
-    rest_list = list(db.restaurant.find({"university_name": search_univ}))
-    for rest in rest_list:
-        rest['_id'] = str(rest['_id'])
-    result = response_factory.get_success_json("검색 성공", rest_list)
-    return render_template('cards.html', restaurants=result['data'], university=search_univ[:-2],
+    rest_list = get_rest_list(search_univ)
+
+    return render_template('cards.html', restaurants=rest_list, university=search_univ[:-2],
                            email=check_and_get_current_email(request))
 
 
@@ -118,6 +116,49 @@ def show_not_on_university():
     universities = list(db.university.find({'on':'N'},{'_id':False}))
     result = response_factory.get_success_json("검색 성공", universities)
     return render_template('university.html', universities=result['data'], email=check_and_get_current_email(request))
+
+
+def get_rest_list(university_name):
+    pipeline = [{'$match': {'university_name': university_name}},
+{
+
+        '$project': {
+            '_id': {
+                "$toString": "$_id"
+            },
+            'store_name': '$store_name',
+            'store_star':'$store_star',
+            'store_link':'$store_link',
+            'store_pic':'$store_pic',
+            'star_total': {
+                '$ifNull': ['$star_total', 'null']
+            }
+        }
+    },
+        {
+            '$lookup': {
+                'from': 'restaurant_star',
+                'localField': '_id',
+                'foreignField': 'store_id',
+                'as': 'star_total'
+            }
+        }]
+    result = db.command('aggregate','restaurant', pipeline=pipeline, explain=False)
+    rest_list = result['cursor']['firstBatch']
+    for rest in rest_list:
+        rest['_id'] = str(rest['_id'])
+        sum = 0
+        count = len(rest['star_total'])
+        for star in rest['star_total']:
+            sum += int(star['star'])
+        if not sum == 0:
+            avg = round(sum/count, 2)
+        else:
+            avg = 0
+        rest['star_avg'] = avg
+        rest['star_count'] = count
+        del rest['star_total']
+    return rest_list
 
 
 if __name__ == '__main__':
