@@ -7,7 +7,9 @@
     <title>Document</title>
   </head>
   <body>
-    {% extends "base.html" %} {% block content %}
+    {% extends "base.html" %} {% block content %} {%block nav%}
+    <div class="invisible justify-center bg-white"></div>
+    {%endblock%}
 
     <div class="flex items-center justify-center">
       <img

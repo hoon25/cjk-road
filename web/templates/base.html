@@ -40,7 +40,8 @@
       #text_login,
       #text_logout,
       #text_signin,
-      #text_user {
+      #text_user,
+      #text_univ {
         text-decoration: none;
       }
 
@@ -48,7 +49,8 @@
       #text_login:hover,
       #text_logout:hover,
       #text_signin:hover,
-      #text_user:hover {
+      #text_user:hover,
+      #text_univ:hover {
         color: #fd0166;
       }
     </style>
@@ -63,7 +65,7 @@
     <!-- header -->
     <nav
       id="navbar"
-      class="bg-white sticky top-0 z-50 grid lg:grid-cols-2 px-20 py-4 items-center self-center"
+      class="bg-white sticky top-0 z-50 grid lg:grid-cols-3 px-20 py-4 items-center self-center"
     >
       <div class="flex space-x-3">
         <div class="flex">
@@ -81,7 +83,8 @@
         </div>
         {% if email %}
         <a
-          href="university/list"
+          id="text_univ"
+          href="/university/list"
           class="font-semibold text-gray-800 px-3 py-1"
           style="border: 3px solid #fd0166; border-radius: 10px"
         >

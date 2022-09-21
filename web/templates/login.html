@@ -12,7 +12,9 @@
     </style>
   </head>
   <body>
-    {% extends 'base.html' %} {% block content %}
+    {% extends 'base.html' %} {% block content %} {%block nav%}
+    <div class="invisible justify-center bg-white"></div>
+    {%endblock%}
     <section class="h-screen">
       <div class="container px-6 py-12">
         <div
