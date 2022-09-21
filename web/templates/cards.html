@@ -24,6 +24,9 @@
       #rateSubmitBtn:hover {
         background-color: #fd0166;
       }
+      #restaurant_name {
+        text-decoration: none;
+      }
     </style>
     <script>
       $(document).ready(function () {
@@ -89,25 +92,30 @@
           style="background-color: #fd0166"
         >
           {% if restaurant.store_pic %}
-          <img
-            class="rounded-t-lg m-0 w-full max-h-40"
-            src="{{restaurant.store_pic}}"
-            alt="아돈노"
-          />
+          <a href="{{restaurant.store_link}}">
+            <img
+              class="rounded-t-lg m-0 w-full max-h-60"
+              src="{{restaurant.store_pic}}"
+              alt="아돈노"
+            />
+          </a>
+
           {% else %}
-          <img
-            class="rounded-t-lg m-0 w-full max-h-40"
-            src="{{url_for('static', filename='src/img/default_pic.png')}}"
-            alt="아돈노"
-          />
+          <a href="#">
+            <img
+              class="rounded-t-lg m-0 w-full max-h-60"
+              src="{{url_for('static', filename='src/img/default_pic.png')}}"
+              alt="아돈노"
+            />
+          </a>
           {% endif %}
 
           <div class="p-2 bg-white rounded-t-none rounded-b-lg">
             <div
               class="card-top-info mb-2 flex justify-between self-center items-center"
             >
-              <a href="{{restaurant.store_link}}">
-                <p class="text-2xl mb-0 font-bold tracking-tight text-gray-800">
+              <a href="{{restaurant.store_link}}" id="restaurant_name">
+                <p class="text-2xl mb-0 font-bold text-gray-800">
                   {{restaurant.store_name}}
                 </p>
               </a>
