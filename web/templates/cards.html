@@ -20,6 +20,11 @@
       src="https://code.jquery.com/jquery-3.4.1.min.js"
     ></script>
 
+    <style>
+      #rateSubmitBtn:hover {
+        background-color: #fd0166;
+      }
+    </style>
     <script>
       $(document).ready(function () {
         console.log("cards.html");
@@ -38,11 +43,6 @@
         dropDown.classList.toggle("hidden");
       }
     </script>
-    <style>
-      #rateSubmitBtn:hover {
-        background-color: #fd0166;
-      }
-    </style>
 
     <title>Document</title>
   </head>
@@ -62,7 +62,7 @@
             type="text"
             placeholder="대학명을 입력하세요."
             aria-label="Full name"
-            style="width: 80%"
+            style="width: 90%"
             value="{{university}}"
           />
           <button
@@ -90,13 +90,13 @@
         >
           {% if restaurant.store_pic %}
           <img
-            class="rounded-t-lg m-0 w-full"
+            class="rounded-t-lg m-0 w-full max-h-40"
             src="{{restaurant.store_pic}}"
             alt="아돈노"
           />
           {% else %}
           <img
-            class="rounded-t-lg m-0 w-full"
+            class="rounded-t-lg m-0 w-full max-h-40"
             src="{{url_for('static', filename='src/img/default_pic.png')}}"
             alt="아돈노"
           />
@@ -111,15 +111,14 @@
                   {{restaurant.store_name}}
                 </p>
               </a>
-              <!--              <a href="#">즐겨찾기</a>-->
             </div>
 
             <div class="mb-2 scard-info-bottom flex justify-around self-center">
               <div class="naver-rate">
                 <span class="font-semibold" style="color: #00c73c">N</span>
                 <span>
-                  {% if restaurant.store_star == '0.0' %} 미등록 / 5.0 {% else
-                  %} {{restaurant.store_star}} / 5.0</span
+                  {% if restaurant.store_star == '0.0' %} 미등록/5.0 {% else %}
+                  {{restaurant.store_star}}/5.0</span
                 >
                 {% endif %}
               </div>
@@ -165,7 +164,7 @@
                   />
                   <label
                     for="radio-1"
-                    class="m-0 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    class="m-0 text-sm font-medium text-gray-900"
                     >1</label
                   >
                 </div>
@@ -181,7 +180,7 @@
                   />
                   <label
                     for="radio-2"
-                    class="m-0 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    class="m-0 text-sm font-medium text-gray-900"
                     >2</label
                   >
                 </div>
@@ -197,7 +196,7 @@
                   />
                   <label
                     for="radio-3"
-                    class="m-0 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    class="m-0 text-sm font-medium text-gray-900"
                     >3</label
                   >
                 </div>
@@ -213,7 +212,7 @@
                   />
                   <label
                     for="radio-4"
-                    class="m-0 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    class="m-0 text-sm font-medium text-gray-900"
                     >4</label
                   >
                 </div>
@@ -229,7 +228,7 @@
                   />
                   <label
                     for="radio-5"
-                    class="m-0 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    class="m-0 text-sm font-medium text-gray-900"
                     >5</label
                   >
                 </div>
