@@ -69,7 +69,7 @@ def restaurant_get(search_univ):
     for rest in rest_list:
         rest['_id'] = str(rest['_id'])
     result = response_factory.get_success_json("검색 성공", rest_list)
-    return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2])
+    return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2], email = (session["userID"]))
    
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5500, debug=True)
