@@ -94,6 +94,8 @@ def restaurant_get(search_univ):
     for rest in rest_list:
         rest['_id'] = str(rest['_id'])
     result = response_factory.get_success_json("검색 성공", rest_list)
+
+
     return render_template('cards.html', restaurants=result['data'], university=search_univ[:-2],
                            email=check_and_get_current_email(request))
 
@@ -121,13 +123,10 @@ def show_not_on_university():
 def rate(university, rest_id):
     email = check_and_get_current_email(request)
     
-    # 고객이 누른 레스토랑 정보 db에서 찾기
-    target_rest = db.restaurant.find_one({"_id": ObjectId(rest_id)})
-    
     # restaurant_star 컬랙션에 필요한 정보 수집
-    restaurant_id = str(target_rest["_id"])
+    restaurant_id = rest_id
     star = int(request.form["rate-radio"][-1])
-    rateing_info = {'store_id': restaurant_id, 'star': star, "user_email" : email}
+    rateing_info = {'restaurant_id': restaurant_id, 'star': star, "user_email" : email}
 
     # db넣기
     db.restaurant_star.insert_one(rateing_info)
