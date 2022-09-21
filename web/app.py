@@ -4,6 +4,7 @@ import sys, os
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 import datetime
 from flask import Flask, render_template, request, jsonify, flash, redirect, session, make_response
+from bson.objectid import ObjectId
 from common import mongo_connector, custom_logger, response_factory
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, set_access_cookies, unset_jwt_cookies, \
     decode_token
@@ -15,8 +16,6 @@ JWT_SECRET_KEY = 'CJK-ROAD'
 app.config.update(
     JWT_SECRET_KEY=JWT_SECRET_KEY
 )
-
-app.secret_key = "111"
 
 jwt = JWTManager(app)
 
@@ -96,7 +95,6 @@ def restaurant_get(search_univ):
     return render_template('cards.html', restaurants=rest_list, university=search_univ[:-2],
                            email=check_and_get_current_email(request))
 
-
 def check_and_get_current_email(request):
     jwt_token = request.cookies.get('access_token_cookie')
     if jwt_token:
@@ -160,6 +158,30 @@ def get_rest_list(university_name):
         del rest['star_total']
     return rest_list
 
+@app.route('/rest/rate/<university>/<rest_id>', methods=['POST'])
+def rate(university, rest_id):
+    email = check_and_get_current_email(request)
+    
+    # restaurant_star 컬랙션에 필요한 정보 수집
+    restaurant_id = rest_id
+    star = int(request.form["rate-radio"][-1])
+    rateing_info = {'restaurant_id': restaurant_id, 'star': star, "user_email" : email}
 
+    # db넣기
+    db.restaurant_star.insert_one(rateing_info)
+
+    # db에서 평균을 구할 가게 id 같은거 전부 추출 후 평균 계산
+    target_store_list = (list(db.restaurant_star.find({"store_id": restaurant_id})))
+    sum_star = 0
+    for target_store in target_store_list:
+        sum_star = sum_star + target_store["star"]
+    sum_person_number= len(target_store_list)
+    star_average= round(sum_star/sum_person_number,1) 
+
+    # 수정해야함!
+    return render_template('index.html', star_average = star_average, sum_person_number= sum_person_number)
+    # return render_template(f'/rest/{university}', star_average = star_average, sum_person_number= sum_person_number)
+    # return redirect (f'/rest/{university}', star_average = star_average, sum_person_number= sum_person_number)
+    
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5500, debug=True)
