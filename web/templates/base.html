@@ -28,8 +28,12 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" type="text/css" href="/web/static/script.css" />
-    <script src="/web/static/javascript.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename = 'script.css')}}"
+    />
+    <script src="{{url_for('static', filename='javascript.js')}}"></script>
 
     <title>Document</title>
   </head>
