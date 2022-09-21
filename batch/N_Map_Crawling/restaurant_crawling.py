@@ -9,12 +9,20 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from urllib import parse
 from batch.common.custom_logger import get_custom_logger
-import sys
 import re
 
 logger = get_custom_logger("crawl")
-driver = webdriver.Chrome()
 
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--window-size=1920,1080')
+# options.add_argument('--disable-gpu')
+options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36")
+options.add_argument("lang=ko_KR")
+
+# driver = webdriver.Chrome(options=options)
+
+driver = webdriver.Chrome()
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
