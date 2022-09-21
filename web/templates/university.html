@@ -60,27 +60,67 @@
       </div>
     </div>
     {% endblock %} {% block content %}
-    <div class="ml-3 my-10 font-bold text-5xl">이번주에 등록 요청된 대학교</div>
-    <div id="university_board" class="flex justify-center">
-      {%if universities%}
-      <div
-        id="university_list"
-        class="w-1/4 p-3 flex justify-between self-center"
-        style="background-color: rgba(121, 117, 118, 0.4); border-radius: 10px"
-      >
-        <ul class="m-0">
-          {% for university in universities %}
+    <div id="university_board" class="grid grid-cols-2">
+      {%if universities_n %}
+      <div id="university_n" class="flex-col">
+        <div class="flex justify-center ml-3 my-10 font-bold text-5xl">
+          이번주에 등록 요청된 대학교
+        </div>
+        <div class="flex justify-center">
+          <div
+            id="university_list"
+            class="=p-3 flex justify-between self-center"
+            style="
+              background-color: rgba(121, 117, 118, 0.2);
+              border-radius: 10px;
+            "
+          >
+            <ul class="m-0">
+              {% for university in universities_n%}
 
-          <li class="text-4xl p-2">{{university.university_name}}</li>
+              <li class="grid grid-cols-2 p-4">
+                <div class="text-2xl flex justify-start">
+                  {{university.university_name}}
+                </div>
+                <div class="text-xl flex justify-end"><a href="">등록</a></div>
+              </li>
 
-          {% endfor %}
-        </ul>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-    {% else %}
-    <div>등록 요청된 대학교가 없습니다.</div>
+      {% endif %} {% if universities_y %}
+      <div id="university_n" class="flex-col">
+        <div class="flex justify-center ml-3 my-10 font-bold text-5xl">
+          이미 등록된 대학교
+        </div>
+        <div class="flex justify-center">
+          <div
+            id="university_list"
+            class="=p-3 flex justify-between self-center"
+            style="
+              background-color: rgba(121, 117, 118, 0.2);
+              border-radius: 10px;
+            "
+          >
+            <ul class="m-0">
+              {% for university in universities_y %}
 
-    {% endif %}
+              <li class="grid grid-cols-2 p-4">
+                <div class="text-2xl flex justify-center">
+                  {{university.university_name}}
+                </div>
+              </li>
+
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
     <div class="mt-10 flex justify-center">
       <a href="/" class="text-xl" style="color: #fd0166">홈으로</a>
     </div>

@@ -125,9 +125,9 @@ def register_university():
 
 @app.route('/university/list')
 def show_not_on_university():
-    universities = list(db.university.find({'on':'N'},{'_id':False}))
-    result = response_factory.get_success_json("검색 성공", universities)
-    return render_template('university.html', universities=result['data'], email=check_and_get_current_email(request))
+    universities_y = list(db.university.find({'on':'Y'},{'_id':False}))
+    universities_n = list(db.university.find({'on':'N'},{'_id':False}))
+    return render_template('university.html', universities_y=universities_y,universities_n=universities_n, email=check_and_get_current_email(request))
 
 
 def get_rest_list(university_name):
