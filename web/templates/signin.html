@@ -5,6 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+      function validEmail(obj) {
+        if (validEmailCheck(obj) == false) {
+          alert("올바른 이메일 주소를 입력해주세요.");
+          obj.value = "";
+          obj.focus();
+          return false;
+        }
+      }
+
+      function validEmailCheck(obj) {
+        var pattern =
+          /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        return obj.value.match(pattern) != null;
+      }
+
+      function validationTest() {
+        event.preventDefault();
+
+        const form = document.getElementById("signinForm");
+        const name = document.getElementById("name").value;
+        const nickname = document.getElementById("nickname").value;
+        const email = document.getElementById("email").value;
+        const password1 = document.getElementById("password1").value;
+        const password2 = document.getElementById("password2").value;
+
+        // name
+        if (name.length == 0) {
+          alert("이름을 입력하세요.");
+          return false;
+        } else if (nickname.length == 0) {
+          alert("별명을 입력하세요.");
+          return false;
+        } else if (email.length == 0) {
+          alert("이메일을 입력하세요.");
+          return false;
+        } else if (password1 != password2) {
+          alert("비밀번호가 일치하지 않습니다.");
+          return false;
+        } else if (password1.length == 0) {
+          alert("비밀번호를 입력하세요.");
+          return false;
+        } else if (password1.length < 8 || password1.length > 20) {
+          alert("비밀번호는 8자리 이상 20자리 이하입니다.");
+          return false;
+        } else {
+          form.submit();
+        }
+      }
+    </script>
   </head>
   <body>
     {% extends 'base.html' %} {% block content %}
@@ -21,12 +71,13 @@
             />
           </div>
           <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-            <form action="/register" method="POST">
+            <form id="signinForm" action="/register" method="POST">
               <!-- 이름 -->
               <div class="mb-6">
                 <input
+                  id="name"
                   type="text"
-                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-pink-600 focus:outline-none"
+                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-red border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
                   placeholder="이름"
                   name="name"
                 />
@@ -35,6 +86,7 @@
               <!-- 별명 -->
               <div class="mb-6">
                 <input
+                  id="nickname"
                   type="text"
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-pink-600 focus:outline-none"
                   placeholder="별명"
@@ -44,6 +96,8 @@
               <!-- 이메일  -->
               <div class="mb-6">
                 <input
+                  onchange="validEmail(this)"
+                  id="email"
                   type="email"
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-pink-600 focus:outline-none"
                   placeholder="이메일"
@@ -54,6 +108,7 @@
               <!-- Password 1 -->
               <div class="mb-6">
                 <input
+                  id="password1"
                   type="password"
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="비밀번호"
@@ -63,17 +118,12 @@
               <!-- Password 2 -->
               <div class="mb-6">
                 <input
+                  id="password2"
                   type="password"
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="비밀번호 확인"
                 />
               </div>
-
-              <!-- <div
-                class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
-              >
-                <p class="text-center font-semibold mx-4 mb-0">OR</p>
-              </div> -->
 
               <a
                 class="px-7 py-3 font-medium text-sm leading-snug uppercase flex justify-center items-center mb-3"
@@ -86,6 +136,7 @@
 
               <!-- Submit button -->
               <button
+                onclick="validationTest()"
                 type="submit"
                 class="inline-block px-7 py-3 bg-white text-gray-800 font-semibold text-sm leading-snug uppercase rounded shadow-md focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                 data-mdb-ripple="true"
