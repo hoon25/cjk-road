@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from urllib import parse
 from batch.common.custom_logger import get_custom_logger
+
 import re
 
 logger = get_custom_logger("crawl")
