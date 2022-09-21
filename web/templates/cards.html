@@ -85,7 +85,7 @@
                   {{restaurant.store_name}}
                 </p>
               </a>
-              <a href="#">즐겨찾기</a>
+<!--              <a href="#">즐겨찾기</a>-->
             </div>
 
             <div class="mb-2 scard-info-bottom flex justify-around self-center">
@@ -99,7 +99,7 @@
               </div>
               <div class="cjk-rate">
                 <span class="font-semibold" style="color: #fd0166">C</span>
-                <span>{{restaurant.star_avg}} / 5.0 ({{restaurant.star_total}}명)</span>
+                <span>{{restaurant.star_avg}}/5.0 ({{restaurant.star_count}}명)</span>
               </div>
               <button
                 id="dropdownBgHoverButton"
@@ -108,7 +108,7 @@
                 type="button"
                 onclick="toggleDropDown()"
               >
-                평점 등록
+                평점등록
               </button>
             </div>
           </div>
@@ -212,7 +212,7 @@
                 type="submit"
                 class="m-2 w-full px-5 py-1"
                 style="border: 3px solid #fd0166; border-radius: 10px"
-                onclick="submitRate()"
+                onclick=""
               >
                 등록
               </button>

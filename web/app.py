@@ -16,6 +16,7 @@ JWT_SECRET_KEY = 'CJK-ROAD'
 app.config.update(
     JWT_SECRET_KEY=JWT_SECRET_KEY
 )
+app.secret_key = "HI"
 
 jwt = JWTManager(app)
 
@@ -41,7 +42,8 @@ def login_action():
     user_info_db = db.user.find_one({"email": input_email})
 
     if user_info_db is None:
-        return redirect('/')
+        flash("로그인에 실패하셨습니다.")
+        return redirect('/login')
     else:
         db_email = user_info_db["email"]
         db_password = user_info_db["password"]
@@ -55,6 +57,7 @@ def login_action():
 
             return resp
         else:
+            flash("로그인에 실패하셨습니다.")
             return redirect('/login')
 
 
@@ -88,7 +91,6 @@ def user_list():
 
 
 @app.route('/rest/<search_univ>', methods=['GET'])
-@jwt_required(['cookies'])
 def restaurant_get(search_univ):
     rest_list = get_rest_list(search_univ)
 
@@ -124,6 +126,7 @@ def get_rest_list(university_name):
             '_id': {
                 "$toString": "$_id"
             },
+            'university_name': '$university_name',
             'store_name': '$store_name',
             'store_star':'$store_star',
             'store_link':'$store_link',
@@ -159,29 +162,23 @@ def get_rest_list(university_name):
     return rest_list
 
 @app.route('/rest/rate/<university>/<rest_id>', methods=['POST'])
+@jwt_required(['cookies'])
 def rate(university, rest_id):
-    email = check_and_get_current_email(request)
-    
-    # restaurant_star 컬랙션에 필요한 정보 수집
-    restaurant_id = rest_id
-    star = int(request.form["rate-radio"][-1])
-    rateing_info = {'restaurant_id': restaurant_id, 'star': star, "user_email" : email}
+    try:
+        email = check_and_get_current_email(request)
 
-    # db넣기
-    db.restaurant_star.insert_one(rateing_info)
+        # restaurant_star 컬랙션에 필요한 정보 수집
+        restaurant_id = rest_id
+        star = int(request.form["rate-radio"][-1])
+        rating_info = {'store_id': restaurant_id, 'star': star, "user_email" : email}
 
-    # db에서 평균을 구할 가게 id 같은거 전부 추출 후 평균 계산
-    target_store_list = (list(db.restaurant_star.find({"store_id": restaurant_id})))
-    sum_star = 0
-    for target_store in target_store_list:
-        sum_star = sum_star + target_store["star"]
-    sum_person_number= len(target_store_list)
-    star_average= round(sum_star/sum_person_number,1) 
+        # db넣기
+        db.restaurant_star.insert_one(rating_info)
 
-    # 수정해야함!
-    return render_template('index.html', star_average = star_average, sum_person_number= sum_person_number)
-    # return render_template(f'/rest/{university}', star_average = star_average, sum_person_number= sum_person_number)
-    # return redirect (f'/rest/{university}', star_average = star_average, sum_person_number= sum_person_number)
-    
+        # 수정해야함!
+    except:
+        logger.exception()
+    return redirect(f'/rest/{university}')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5500, debug=True)
