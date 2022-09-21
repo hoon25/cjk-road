@@ -67,11 +67,15 @@
           class="p-2 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800"
           style="background-color: #fd0166"
         >
+          {% if restaurant.store_pic %}
+          <img class="rounded-t-lg m-0 w-full" src="{{restaurant.store_pic}}" />
+          {% else %}
           <img
             class="rounded-t-lg m-0 w-full"
-            src="{{restaurant.store_pic}}"
-            alt=""
+            src="{{url_for('static', filename='/src/img/default_pic.png')}}"
           />
+          {% endif %}
+
           <div class="p-2 bg-white rounded-t-none rounded-b-lg">
             <div
               class="card-top-info mb-2 flex justify-between self-center items-center"
