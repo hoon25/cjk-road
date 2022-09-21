@@ -7,12 +7,19 @@
 
     <script>
       function submitInput() {
+        console.log("a");
         const university = $("#universityInput").val();
         if (university == "") {
           alert("대학명을 입력해주세요.");
           window.location.reload();
         } else {
           self.location.href = `/rest/${university}맛집`;
+        }
+      }
+
+      function enterInput() {
+        if (window.event.keyCode == 13) {
+          submitInput();
         }
       }
     </script>
@@ -29,7 +36,7 @@
       />
     </div>
     <div class="flex items-center justify-center">
-      <form class="w-full max-w-3xl">
+      <div class="w-full max-w-3xl">
         <div
           class="flex justify-between py-2 px-2"
           style="border: 7px solid #fd0166; border-radius: 10px"
@@ -41,17 +48,18 @@
             placeholder="대학명을 입력하세요."
             aria-label="Full name"
             style="width: 80%"
+            onkeyup="enterInput()"
           />
-          <a class="flex self-center" onclick="submitInput()">
-            <div
-              class="px-4 py-3 font-semibold text-gray-800"
-              style="background-color: #fd0166; border-radius: 10px"
-            >
-              검색
-            </div>
-          </a>
+          <button
+            onclick="submitInput()"
+            type="button"
+            class="px-4 py-3 font-semibold text-gray-800"
+            style="background-color: #fd0166; border-radius: 10px"
+          >
+            검색
+          </button>
         </div>
-      </form>
+      </div>
     </div>
 
     {% endblock %}

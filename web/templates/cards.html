@@ -47,6 +47,11 @@
           alert("nothing checked");
         }
       }
+      function enterInput() {
+        if (window.event.keyCode == 13) {
+          submitInput();
+        }
+      }
     </script>
 
     <style>
@@ -61,12 +66,13 @@
     {% extends 'base.html' %} {% block nav %}
 
     <div class="flex justify-center bg-white">
-      <form class="w-full max-w-3xl">
+      <div class="w-full max-w-3xl">
         <div
           class="flex justify-between items-center py-2 px-2"
           style="border: 7px solid #fd0166; border-radius: 10px"
         >
           <input
+            onkeyup="enterInput()"
             id="universityInput"
             class="appearance-none bg-transparent border-none w-full text-gray-700 py-1 px-0 leading-tight font-semibold justify-start"
             type="text"
@@ -75,16 +81,16 @@
             style="width: 80%"
             value="{{university}}"
           />
-          <a class="flex self-center" onclick="submitInput()">
-            <div
-              class="px-1 py-1 font-semibold text-gray-800"
-              style="background-color: #fd0166; border-radius: 10px"
-            >
-              검색
-            </div>
-          </a>
+          <button
+            onclick="submitInput()"
+            type="button"
+            class="px-1 py-1 font-semibold text-gray-800"
+            style="background-color: #fd0166; border-radius: 10px"
+          >
+            검색
+          </button>
         </div>
-      </form>
+      </div>
     </div>
     {% endblock %} {% block content %} {% if restaurants %}
     <!-- 맛집 list (DB에 있을 경우) -->
