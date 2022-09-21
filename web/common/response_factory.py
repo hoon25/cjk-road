@@ -11,7 +11,6 @@ def get_success_json(msg, data=None):
     else:
         return {'result': 'success', 'msg': msg, 'data': data}
 
-
 def get_failure_json(msg):
     """
     응답 실패 JSON 메세지

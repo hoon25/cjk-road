@@ -1,15 +1,13 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from flask import Flask, render_template, request, jsonify, flash, redirect, session
+from bson.objectid import ObjectId
 
 # from web.common.mongo_connector import get_db, get_conn_with_collections
 # from web.common.response_factory import get_success_json, get_failure_json
 # from web.common.custom_logger import get_custom_logger
 from common import mongo_connector, custom_logger, response_factory
-
-from pymongo import MongoClient
-client = MongoClient('13.209.42.162', 27017)
-db = client.user
+# from pymongo import MongoClient
 
 app = Flask(__name__)
 app.secret_key = '111'
@@ -69,16 +67,26 @@ def user_list():
     user_list = list(db.user.find({}, {'_id': 0 }))
     return jsonify({'result':'success', 'msg':'Connected', 'data': user_list})
 
-
 @app.route('/rest/<search_univ>', methods=['GET'])
 def restaurant_get(search_univ):
     try:
         rest_list = list(db.restaurant.find({"university_name": search_univ}))
         for rest in rest_list:
+            # print(type(rest['_id']))
             rest['_id'] = str(rest['_id'])
+            # print(rest["store_name"])
+            # print(rest)
+            # print(rest['_id'])
+            # print(rest["store_name"])
+        # str(db.restaurant)
+        print(db.restaurant.find_one({"_id" : ObjectId('6329997808a918d5923d466b')}))
+    
+            
+
+
         result = response_factory.get_success_json("검색 성공", rest_list)
-        logger.info(result)
-        print(type(result['data']))
+        # logger.info(result)
+        # print(type(result['data']))
         return render_template('cards.html', restaurants = result['data'])
 
     except:
