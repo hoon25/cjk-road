@@ -7,6 +7,7 @@ import time
 from urllib import parse
 from batch.common.custom_logger import get_custom_logger
 import sys
+import re
 
 logger = get_custom_logger("crawl")
 driver = webdriver.Chrome()
@@ -51,8 +52,18 @@ def main(key_word):
             logger.debug("---------------------링크")
             store_link = f"https://map.naver.com/v5/search/{parse.quote(store_name)}/"
             logger.debug(store_link)
+            try:
+                logger.debug("---------------------사진")
+                store_pic_list = store.find_elements(By.CSS_SELECTOR, 'div.N_3Z8 > div > a > div > div')
+                store_pic_all = store_pic_list[0]
+                store_pic_string = store_pic_all.get_attribute('style')
+                m = re.search('url\("(.*?)"\)', store_pic_string)
+                store_pic = m.group(1)
+                logger.debug(store_pic)
+            except:
+                store_pic = "N"
 
-            store_dict = {'university_name': key_word, 'store_name': store_name, 'store_star': store_star, 'store_link': store_link}
+            store_dict = {'university_name': key_word, 'store_name': store_name, 'store_star': store_star, 'store_link': store_link, 'store_pic': store_pic}
             store_dict_list.append(store_dict)
         return store_dict_list
     except:
@@ -60,6 +71,7 @@ def main(key_word):
     finally:
         driver.quit()
         logger.info(f"소요시간:{time.time() - start_time}")
+        time.sleep(2)
 
 
 # 페이지 로드 대기
