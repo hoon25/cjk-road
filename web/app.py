@@ -48,7 +48,7 @@ def login_action():
         logger.info(f"DB: {db_email} {db_password}")
         if db_email == input_email and db_password == input_password:
             access_token = create_access_token(identity={"email": db_email},
-                                               expires_delta=datetime.timedelta(minutes=5))
+                                               expires_delta=datetime.timedelta(minutes=120))
             logger.info(access_token)
             resp = make_response(redirect('/'))
             set_access_cookies(resp, access_token)
