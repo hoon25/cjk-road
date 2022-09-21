@@ -1,6 +1,5 @@
 from pymongo import MongoClient
 
-
 def get_client():
     client = MongoClient('54.180.145.4', 27017,
                          username='test',
