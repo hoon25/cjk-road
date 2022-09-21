@@ -73,6 +73,13 @@ def logout():
 def register_page():
     return render_template('signin.html')
 
+def valid_signin_exists_email(email):
+    user_count = list(db.user.find({'email':email}))
+    if len(user_count) != 0:
+        flash("이미 존재하는 ID입니다.")
+        return False
+    return True
+
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -80,6 +87,10 @@ def register():
     nickname = request.form["nickname"]
     email = request.form["email"]
     password = request.form["password"]
+
+    if valid_signin_exists_email(email):
+        return redirect("/")
+
     user_info = {"name": name, "nickname": nickname, "email": email, "password": password}
     db.user.insert_one(user_info)
     return redirect("/")
