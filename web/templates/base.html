@@ -38,10 +38,10 @@
     <nav
       class="bg-white sticky top-0 z-50 flex justify-between px-20 py-4 items-center self-center"
     >
-      <div class="text-xl text-gray-800 font-bold">최정기로드</div>
+      <a class="text-xl text-gray-800 font-bold" href="/">최정기로드</a>
 
       {% block nav %} {% endblock %}
-      <div class="flex items-center self-center"> 
+      <div class="flex items-center self-center">
         {% if not email %}
         <ul class="flex items-center space-x-6 mb-0">
           <a href="/login">
@@ -58,7 +58,6 @@
               style="border: 3px solid #fd0166; border-radius: 10px"
             >
               회원가입
-              
             </li>
           </a>
         </ul>

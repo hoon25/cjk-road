@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.append(Path(__file__).resolve().parent.parent.parent.as_posix())
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -13,6 +16,17 @@ logger = get_custom_logger("crawl")
 driver = webdriver.Chrome()
 
 
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--window-size=1920,1080')
+# options.add_argument('--disable-gpu')
+options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36")
+options.add_argument("lang=ko_KR")
+
+# driver = webdriver.Chrome(options=options)
+
+driver = webdriver.Chrome()
+
 def main(key_word):
     try:
         start_time = time.time()
@@ -27,6 +41,7 @@ def main(key_word):
 
         time.sleep(1)
         switch_frame('searchIframe')
+        time.sleep(1)
         page_down(40)
         time.sleep(1)
 
@@ -69,7 +84,7 @@ def main(key_word):
     except:
         logger.exception(f"{key_word} 크롤링 실패")
     finally:
-        driver.quit()
+        # driver.quit()
         logger.info(f"소요시간:{time.time() - start_time}")
         time.sleep(2)
 
@@ -94,6 +109,19 @@ def switch_frame(frame):
 # 페이지 내리기
 def page_down(num):
     body = driver.find_element(By.CSS_SELECTOR, 'body')
+    # driver.execute_script("console.log(document.querySelectorAll('body'))")
+    # driver.execute_script("document.querySelector('body').click()")
+    # driver.execute_script("document.getElementsByClassName('Fufu_')[0].click()")
+    # driver.execute_script("window.scrollTo(0,100)")
+
+    # driver.execute_script("console.log(document.getElementById('searchIframe').contentWindow)")
+    # driver.execute_script("console.log(document.getElementById('searchIframe').body.scrollHeight)")
+    # driver.execute_script("document.getElementById('searchIframe').contentWindow.scrollTo(0, 100000);")
+
+    # for i in range(num):
+    #     # driver.execute_script("myIframe.contentWindow.scrollTo(0, document.body.scrollHeight);")
+    #     driver.execute_script("document.getElementById('searchIframe').contentWindow.scrollTo(0, 100000);")
+
     body.click()
     for i in range(num):
         body.send_keys(Keys.PAGE_DOWN)
