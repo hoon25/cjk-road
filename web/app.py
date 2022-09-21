@@ -117,7 +117,7 @@ def register_university():
 def show_not_on_university():
     universities = list(db.university.find({'on':'N'},{'_id':False}))
     result = response_factory.get_success_json("검색 성공", universities)
-    return render_template('university.html', universities=result['data'])
+    return render_template('university.html', universities=result['data'], email=check_and_get_current_email(request))
 
 
 if __name__ == '__main__':
