@@ -1,81 +1,110 @@
 from pickle import NONE
 import sys, os
+
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-from flask import Flask, render_template, request, jsonify, flash, redirect, session
-
+import datetime
+from flask import Flask, render_template, request, jsonify, flash, redirect, session, make_response
 from common import mongo_connector, custom_logger, response_factory
-# from pymongo import MongoClient
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, set_access_cookies, unset_jwt_cookies, \
+    decode_token
 
-app = Flask(__name__)
-app.secret_key = '111'
-
-db = mongo_connector.get_db()
 logger = custom_logger.get_custom_logger("web")
 
-@app.route('/') 
+app = Flask(__name__)
+JWT_SECRET_KEY = 'CJK-ROAD'
+app.config.update(
+    JWT_SECRET_KEY=JWT_SECRET_KEY
+)
+
+app.secret_key = "111"
+
+jwt = JWTManager(app)
+
+db = mongo_connector.get_db()
+
+
+@app.route('/')
 def home():
-    if "userID" in session:
-        return render_template("index.html", email = session.get("userID"))
-    else:
-        return render_template("index.html")
+    check_and_get_current_email(request)
+    return render_template("index.html", email=check_and_get_current_email(request))
+
 
 @app.route('/login', methods=["GET"])
 def login():
     return render_template("login.html")
 
-@app.route('/login_action', methods=["GET"])
+
+@app.route('/login_action', methods=["POST"])
 def login_action():
-    email = request.args.get("email")
-    password = request.args.get("password")
-    user_info_db = db.user.find_one({"email" : email})
+    input_email = request.form["email"]
+    input_password = request.form["password"]
+    logger.info(f"INPUT: {input_email} {input_password}")
+    user_info_db = db.user.find_one({"email": input_email})
 
     if user_info_db is None:
         return redirect('/')
     else:
         db_email = user_info_db["email"]
         db_password = user_info_db["password"]
-        if db_email == email and db_password == password:
-            session["userID"] = email
-            return redirect('/')
+        logger.info(f"DB: {db_email} {db_password}")
+        if db_email == input_email and db_password == input_password:
+            access_token = create_access_token(identity={"email": db_email},
+                                               expires_delta=datetime.timedelta(minutes=5))
+            logger.info(access_token)
+            resp = make_response(redirect('/'))
+            set_access_cookies(resp, access_token)
+
+            return resp
         else:
             return redirect('/login')
-        
+
+
 @app.route("/logout")
 def logout():
-    session.pop("userID")
-    return redirect('/')
+    resp = make_response(redirect('/'))
+    unset_jwt_cookies(resp)
+    return resp
+
 
 @app.route('/signin', methods=['GET'])
 def register_page():
-    return render_template('signin.html')  
+    return render_template('signin.html')
+
 
 @app.route('/register', methods=['POST'])
 def register():
     name = request.form["name"]
     nickname = request.form["nickname"]
-    session['email'] = request.form["email"]
-    session['password'] = request.form["password"]
-    user_info = {"name": name, "nickname": nickname, "email": session['email'], "password": session['password']}
+    email = request.form["email"]
+    password = request.form["password"]
+    user_info = {"name": name, "nickname": nickname, "email": email, "password": password}
     db.user.insert_one(user_info)
-    return redirect ("/")
+    return redirect("/")
+
 
 @app.route('/user_list', methods=["GET"])
 def user_list():
-    user_list = list(db.user.find({}, {'_id': 0 }))
-    return jsonify({'result':'success', 'msg':'Connected', 'data': user_list})
+    user_list = list(db.user.find({}, {'_id': 0}))
+    return jsonify({'result': 'success', 'msg': 'Connected', 'data': user_list})
+
 
 @app.route('/rest/<search_univ>', methods=['GET'])
+@jwt_required(['cookies'])
 def restaurant_get(search_univ):
     rest_list = list(db.restaurant.find({"university_name": search_univ}))
     for rest in rest_list:
         rest['_id'] = str(rest['_id'])
     result = response_factory.get_success_json("검색 성공", rest_list)
+    return render_template('cards.html', restaurants=result['data'], university=search_univ[:-2],
+                           email=check_and_get_current_email(request))
 
-    if (session) is None:
-        return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2], email = (session["userID"]))
-    else:
-        return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2])
 
+def check_and_get_current_email(request):
+    jwt_token = request.cookies.get('access_token_cookie')
+    if jwt_token:
+        current_user = decode_token(jwt_token)
+        return current_user['sub']['email']
+    return None
 
 
 if __name__ == '__main__':
