@@ -1,4 +1,3 @@
-from pickle import NONE
 import sys, os
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
@@ -51,6 +50,8 @@ def login_action():
         if db_email == input_email and db_password == input_password:
             access_token = create_access_token(identity={"email": db_email},
                                                expires_delta=datetime.timedelta(minutes=120))
+
+            flash("로그인에 성공하셨습니다.")
             logger.info(access_token)
             resp = make_response(redirect('/'))
             set_access_cookies(resp, access_token)
