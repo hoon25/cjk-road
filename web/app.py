@@ -1,3 +1,4 @@
+from pickle import NONE
 import sys, os
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from flask import Flask, render_template, request, jsonify, flash, redirect, session
@@ -69,7 +70,13 @@ def restaurant_get(search_univ):
     for rest in rest_list:
         rest['_id'] = str(rest['_id'])
     result = response_factory.get_success_json("검색 성공", rest_list)
-    return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2], email = (session["userID"]))
-   
+
+    if (session) is None:
+        return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2], email = (session["userID"]))
+    else:
+        return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2])
+
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5500, debug=True)
