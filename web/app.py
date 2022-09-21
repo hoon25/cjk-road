@@ -162,11 +162,26 @@ def get_rest_list(university_name):
         del rest['star_total']
     return rest_list
 
+def valid_user_click_star(store_id, email):
+    if not email:
+        flash("로그인이 필요합니다.")
+        return False
+
+    user_count = list(db.restaurant_star.find({'store_id':store_id, 'user_email':email}))
+    if len(user_count) != 0:
+        flash("1회만 등록이 가능합니다.")
+        return False
+
+    return True
+
 @app.route('/rest/rate/<university>/<rest_id>', methods=['POST'])
 @jwt_required(['cookies'])
 def rate(university, rest_id):
     try:
         email = check_and_get_current_email(request)
+        if not valid_user_click_star(str(rest_id), email):
+            return redirect(f'/rest/{university}')
+
 
         # restaurant_star 컬랙션에 필요한 정보 수집
         restaurant_id = rest_id
@@ -176,10 +191,14 @@ def rate(university, rest_id):
         # db넣기
         db.restaurant_star.insert_one(rating_info)
 
-        # 수정해야함!
     except:
-        logger.exception()
+        logger.exception("별점 등록 에러")
     return redirect(f'/rest/{university}')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5500, debug=True)
+
+
+
+
+
