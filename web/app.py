@@ -1,11 +1,9 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from flask import Flask, render_template, request, jsonify, flash, redirect, session
-from common import mongo_connector, custom_logger, response_factory
 
-from pymongo import MongoClient
-client = MongoClient('13.209.42.162', 27017)
-db = client.user
+from common import mongo_connector, custom_logger, response_factory
+# from pymongo import MongoClient
 
 app = Flask(__name__)
 app.secret_key = '111'
@@ -65,14 +63,13 @@ def user_list():
     user_list = list(db.user.find({}, {'_id': 0 }))
     return jsonify({'result':'success', 'msg':'Connected', 'data': user_list})
 
-
 @app.route('/rest/<search_univ>', methods=['GET'])
 def restaurant_get(search_univ):
     rest_list = list(db.restaurant.find({"university_name": search_univ}))
     for rest in rest_list:
         rest['_id'] = str(rest['_id'])
     result = response_factory.get_success_json("검색 성공", rest_list)
-    return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2])
+    return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2], email = (session["userID"]))
    
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5500, debug=True)
