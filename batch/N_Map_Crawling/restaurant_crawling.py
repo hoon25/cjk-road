@@ -9,10 +9,12 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from urllib import parse
 from batch.common.custom_logger import get_custom_logger
-
+import sys
 import re
 
 logger = get_custom_logger("crawl")
+driver = webdriver.Chrome()
+
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
