@@ -5,8 +5,8 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 import datetime
 from flask import Flask, render_template, request, jsonify, flash, redirect, session, make_response
 from common import mongo_connector, custom_logger, response_factory
-from flask_jwt_extended import JWTManager, create_access_token, get_current_user, jwt_required, get_jwt_identity, \
-    set_access_cookies, unset_jwt_cookies, decode_token
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, set_access_cookies, unset_jwt_cookies, \
+    decode_token
 
 logger = custom_logger.get_custom_logger("web")
 
@@ -34,10 +34,10 @@ def login():
     return render_template("login.html")
 
 
-@app.route('/login_action', methods=["GET"])
+@app.route('/login_action', methods=["POST"])
 def login_action():
-    input_email = request.args.get("email")
-    input_password = request.args.get("password")
+    input_email = request.form["email"]
+    input_password = request.form["password"]
     logger.info(f"INPUT: {input_email} {input_password}")
     user_info_db = db.user.find_one({"email": input_email})
 
@@ -49,7 +49,7 @@ def login_action():
         logger.info(f"DB: {db_email} {db_password}")
         if db_email == input_email and db_password == input_password:
             access_token = create_access_token(identity={"email": db_email},
-                                               expires_delta=datetime.timedelta(seconds=20))
+                                               expires_delta=datetime.timedelta(minutes=5))
             logger.info(access_token)
             resp = make_response(redirect('/'))
             set_access_cookies(resp, access_token)
@@ -87,6 +87,7 @@ def user_list():
     user_list = list(db.user.find({}, {'_id': 0}))
     return jsonify({'result': 'success', 'msg': 'Connected', 'data': user_list})
 
+
 @app.route('/rest/<search_univ>', methods=['GET'])
 @jwt_required(['cookies'])
 def restaurant_get(search_univ):
@@ -104,7 +105,6 @@ def check_and_get_current_email(request):
         current_user = decode_token(jwt_token)
         return current_user['sub']['email']
     return None
-
 
 
 if __name__ == '__main__':
