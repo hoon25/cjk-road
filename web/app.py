@@ -90,19 +90,9 @@ def user_list():
 @app.route('/rest/<search_univ>', methods=['GET'])
 @jwt_required(['cookies'])
 def restaurant_get(search_univ):
-<<<<<<< HEAD
-    rest_list = list(db.restaurant.find({"university_name": search_univ}))
-    for rest in rest_list:
-        rest['_id'] = str(rest['_id'])
-    result = response_factory.get_success_json("검색 성공", rest_list)
-
-
-    return render_template('cards.html', restaurants=result['data'], university=search_univ[:-2],
-=======
     rest_list = get_rest_list(search_univ)
 
     return render_template('cards.html', restaurants=rest_list, university=search_univ[:-2],
->>>>>>> 863cb24a36273a9fed286923c8ebf8bbe65141d9
                            email=check_and_get_current_email(request))
 
 def check_and_get_current_email(request):
