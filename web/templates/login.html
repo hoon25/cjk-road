@@ -21,25 +21,17 @@
             />
           </div>
           <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-            <!-- <div class="flex justify-center">
-              <img
-                class="rounded-full"
-                src="{{url_for('static', filename='/src/img/logo_main.png')}}"
-                alt=""
-                width="200px"
-              />
-            </div> -->
             <div class="text-7xl font-extrabold mb-6 flex justify-center">
               Welcome
             </div>
-            <form action="/login_action" method="Get">
+            <form action="/login_action" method="POST">
               <!-- 이메일  -->
               <div class="mb-6">
                 <input
                   type="email"
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-pink-600 focus:outline-none"
                   placeholder="이메일"
-                  name = "email"
+                  name="email"
                 />
               </div>
 
@@ -49,16 +41,9 @@
                   type="password"
                   class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-800 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="비밀번호"
-                  name = "password"
+                  name="password"
                 />
               </div>
-
-              <!-- <div
-                class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
-              >
-                <p class="text-center font-semibold mx-4 mb-0">OR</p>
-              </div> -->
-
               <a
                 class="px-7 py-3 font-medium text-sm leading-snug uppercase flex justify-center items-center mb-3"
                 href="signin"

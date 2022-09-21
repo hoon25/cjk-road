@@ -7,34 +7,28 @@
     <title>Document</title>
   </head>
   <body>
-    {% extends "base.html" %} {% block content %}
+    {%extends 'base.html'%}{% block nav %}
 
-    <div class="flex items-center justify-center">
-      <img
-        src="{{url_for('static', filename='src/img/logo_main.png')}}"
-        alt="메인로고"
-        width="430px"
-      />
-    </div>
-    <div class="flex items-center justify-center">
+    <div class="flex justify-center bg-white">
       <div class="w-full max-w-3xl">
         <div
-          class="flex justify-between py-2 px-2"
+          class="flex justify-between items-center py-2 px-2"
           style="border: 7px solid #fd0166; border-radius: 10px"
         >
           <input
+            onkeyup="enterInput()"
             id="universityInput"
-            class="appearance-none bg-transparent border-none w-full text-gray-700 py-4 px-1 leading-tight font-semibold"
+            class="appearance-none bg-transparent border-none w-full text-gray-700 py-1 px-0 leading-tight font-semibold justify-start"
             type="text"
             placeholder="대학명을 입력하세요."
             aria-label="Full name"
             style="width: 80%"
-            onkeyup="enterInput()"
+            value="{{university}}"
           />
           <button
             onclick="submitInput()"
             type="button"
-            class="px-4 py-3 font-semibold text-gray-800"
+            class="px-1 py-1 font-semibold text-gray-800"
             style="background-color: #fd0166; border-radius: 10px"
           >
             검색
@@ -42,7 +36,14 @@
         </div>
       </div>
     </div>
+    {% endblock %} {% block content %} {%if universities%} {% for university in
+    universities %}
 
-    {% endblock %}
+    <div>{{university.university_name}}</div>
+
+    {% endfor %} {% else %}
+    <div>등록 요청된 대학교가 없습니다.</div>
+
+    {% endif %} {% endblock%}
   </body>
 </html>
