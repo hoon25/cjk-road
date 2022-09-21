@@ -36,27 +36,41 @@
     <script src="{{url_for('static', filename='javascript.js')}}"></script>
 
     <title>Document</title>
-</head>
-<body>
-{%with messages = get_flashed_messages()%}
-  {%if messages %}
+  </head>
+  <body>
+    {%with messages = get_flashed_messages()%} {%if messages %}
     <script type="text/javascript">
       alert("{{messages[-1]}}");
     </script>
-    {%endif%}
-{%endwith%}
-<!-- header -->
-<nav
-        class="bg-white sticky top-0 z-50 flex justify-between px-20 py-4 items-center self-center"
->
-
-    <div class="flex">
-      <img class="w-10 mr-2" src="{{url_for('static', filename='src/img/logo_main.png')}}" alt=""><a class="text-xl text-gray-800 font-bold" href="/">
-      최정기로드</a></div>
-
+    {%endif%} {%endwith%}
+    <!-- header -->
+    <nav
+      id="navbar"
+      class="bg-white sticky top-0 z-50 grid lg:grid-cols-2 px-20 py-4 items-center self-center"
+    >
+      <div class="flex space-x-3">
+        <div class="flex">
+          <img
+            class="w-10 mr-2"
+            src="{{url_for('static', filename='src/img/logo_main.png')}}"
+            alt=""
+          /><a class="m-0 self-center text-xl text-gray-800 font-bold" href="/">
+            최정기로드</a
+          >
+        </div>
+        {% if email %}
+        <a
+          href="university/list"
+          class="font-semibold text-gray-800 px-3 py-1"
+          style="border: 3px solid #fd0166; border-radius: 10px"
+        >
+          등록요청대학
+        </a>
+        {% endif %}
+      </div>
 
       {% block nav %} {% endblock %}
-      <div class="flex items-center self-center">
+      <div class="flex justify-end items-center self-center">
         {% if not email %}
         <ul class="flex items-center space-x-6 mb-0">
           <a href="/login">
@@ -77,15 +91,7 @@
           </a>
         </ul>
         {% else %}
-        <ul class="flex items-center space-x-6 mb-0">
-          <a href="university/list">
-            <li
-              class="font-semibold text-gray-800 px-3 py-1"
-              style="border: 3px solid #fd0166; border-radius: 10px"
-            >
-              등록요청대학
-            </li>
-          </a>
+        <ul class="flex items-center justify-end space-x-3 mb-0">
           <a href="#">
             <li
               class="font-semibold text-gray-800 px-3 py-1"
@@ -105,7 +111,6 @@
         </ul>
         {% endif %}
       </div>
-
     </nav>
     {% block content %} {% endblock %}
   </body>
