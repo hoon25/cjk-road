@@ -77,6 +77,19 @@ def restaurant_get(search_univ):
         return render_template('cards.html', restaurants = result['data'], university = search_univ[:-2])
 
 
+@app.route('/register/university', methods=['POST'])
+def register_university():
+    university = request.form['university_name']
+    if (db.university.find_one({"university_name":university}) == None):
+        db.university.insert_one({"university_name":university,"on":'N'})
+    return redirect ("/university/list")
+
+@app.route('/university/list')
+def show_not_on_university():
+    universities = list(db.university.find({'on':'N'},{'_id':False}))
+    result = response_factory.get_success_json("검색 성공", universities)
+    return render_template('university.html', universities=result['data'])
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5500, debug=True)
