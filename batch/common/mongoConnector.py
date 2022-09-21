@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-client = MongoClient('13.209.42.162', 27017,
+client = MongoClient('54.180.145.4', 27017,
                      username='test',
                      password='test',
                      authSource='admin',
