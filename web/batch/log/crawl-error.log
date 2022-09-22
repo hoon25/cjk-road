@@ -1,0 +1,1358 @@
+2022-09-20 15:37:02,215 - cjk-logger - ERROR - 대학교 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/university_crawling.py", line 19, in main
+    time.wait(2)
+AttributeError: module 'time' has no attribute 'wait'
+2022-09-20 15:37:23,230 - cjk-logger - ERROR - 대학교 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/university_crawling.py", line 21, in main
+    univ_master = driver.find_elements(By.CLASS_NAME, '.data-v-bbaea4de')
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 888, in find_elements
+    return self.execute(Command.FIND_ELEMENTS, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x00000001006fd788 chromedriver + 4515720
+1   chromedriver                        0x00000001006819d3 chromedriver + 4008403
+2   chromedriver                        0x000000010031412a chromedriver + 413994
+3   chromedriver                        0x00000001003171b7 chromedriver + 426423
+4   chromedriver                        0x000000010031705f chromedriver + 426079
+5   chromedriver                        0x000000010031731c chromedriver + 426780
+6   chromedriver                        0x000000010034b587 chromedriver + 640391
+7   chromedriver                        0x000000010034ba61 chromedriver + 641633
+8   chromedriver                        0x000000010037dfa1 chromedriver + 847777
+9   chromedriver                        0x00000001003687fd chromedriver + 759805
+10  chromedriver                        0x000000010037bbd9 chromedriver + 838617
+11  chromedriver                        0x0000000100368603 chromedriver + 759299
+12  chromedriver                        0x000000010033e990 chromedriver + 588176
+13  chromedriver                        0x000000010033fa75 chromedriver + 592501
+14  chromedriver                        0x00000001006cd6cd chromedriver + 4318925
+15  chromedriver                        0x00000001006d1f35 chromedriver + 4337461
+16  chromedriver                        0x00000001006d91ff chromedriver + 4366847
+17  chromedriver                        0x00000001006d2c5a chromedriver + 4340826
+18  chromedriver                        0x00000001006a8c2c chromedriver + 4168748
+19  chromedriver                        0x00000001006ef4f8 chromedriver + 4457720
+20  chromedriver                        0x00000001006ef693 chromedriver + 4458131
+21  chromedriver                        0x0000000100704a3e chromedriver + 4545086
+22  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+23  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:24:56,828 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_element(By.CSS_SELECTOR, 'div.N_3Z8 > div > div > div.K0PDV').text
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 419, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.N_3Z8 > div > div > div.K0PDV"}
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x00000001004cf788 chromedriver + 4515720
+1   chromedriver                        0x00000001004539d3 chromedriver + 4008403
+2   chromedriver                        0x00000001000e612a chromedriver + 413994
+3   chromedriver                        0x000000010011d873 chromedriver + 641139
+4   chromedriver                        0x000000010011da61 chromedriver + 641633
+5   chromedriver                        0x0000000100112137 chromedriver + 594231
+6   chromedriver                        0x000000010013a7fd chromedriver + 759805
+7   chromedriver                        0x0000000100112075 chromedriver + 594037
+8   chromedriver                        0x000000010013a92e chromedriver + 760110
+9   chromedriver                        0x000000010014dbd9 chromedriver + 838617
+10  chromedriver                        0x000000010013a603 chromedriver + 759299
+11  chromedriver                        0x0000000100110990 chromedriver + 588176
+12  chromedriver                        0x0000000100111a75 chromedriver + 592501
+13  chromedriver                        0x000000010049f6cd chromedriver + 4318925
+14  chromedriver                        0x00000001004a3f35 chromedriver + 4337461
+15  chromedriver                        0x00000001004ab1ff chromedriver + 4366847
+16  chromedriver                        0x00000001004a4c5a chromedriver + 4340826
+17  chromedriver                        0x000000010047ac2c chromedriver + 4168748
+18  chromedriver                        0x00000001004c14f8 chromedriver + 4457720
+19  chromedriver                        0x00000001004c1693 chromedriver + 4458131
+20  chromedriver                        0x00000001004d6a3e chromedriver + 4545086
+21  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+22  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:26:32,261 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_element(By.CSS_SELECTOR, 'div.N_3Z8 > div >  div.38UD').text
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 419, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x00000001006c9788 chromedriver + 4515720
+1   chromedriver                        0x000000010064d9d3 chromedriver + 4008403
+2   chromedriver                        0x00000001002e012a chromedriver + 413994
+3   chromedriver                        0x00000001002e31b7 chromedriver + 426423
+4   chromedriver                        0x00000001002e305f chromedriver + 426079
+5   chromedriver                        0x00000001002e331c chromedriver + 426780
+6   chromedriver                        0x0000000100317587 chromedriver + 640391
+7   chromedriver                        0x0000000100317a61 chromedriver + 641633
+8   chromedriver                        0x000000010030c137 chromedriver + 594231
+9   chromedriver                        0x00000001003347fd chromedriver + 759805
+10  chromedriver                        0x000000010030c075 chromedriver + 594037
+11  chromedriver                        0x000000010033492e chromedriver + 760110
+12  chromedriver                        0x0000000100347bd9 chromedriver + 838617
+13  chromedriver                        0x0000000100334603 chromedriver + 759299
+14  chromedriver                        0x000000010030a990 chromedriver + 588176
+15  chromedriver                        0x000000010030ba75 chromedriver + 592501
+16  chromedriver                        0x00000001006996cd chromedriver + 4318925
+17  chromedriver                        0x000000010069df35 chromedriver + 4337461
+18  chromedriver                        0x00000001006a51ff chromedriver + 4366847
+19  chromedriver                        0x000000010069ec5a chromedriver + 4340826
+20  chromedriver                        0x0000000100674c2c chromedriver + 4168748
+21  chromedriver                        0x00000001006bb4f8 chromedriver + 4457720
+22  chromedriver                        0x00000001006bb693 chromedriver + 4458131
+23  chromedriver                        0x00000001006d0a3e chromedriver + 4545086
+24  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+25  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:26:56,030 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_element(By.CSS_SELECTOR, 'div.N_3Z8 >  div.38UD').text
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 419, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x00000001069e8788 chromedriver + 4515720
+1   chromedriver                        0x000000010696c9d3 chromedriver + 4008403
+2   chromedriver                        0x00000001065ff12a chromedriver + 413994
+3   chromedriver                        0x00000001066021b7 chromedriver + 426423
+4   chromedriver                        0x000000010660205f chromedriver + 426079
+5   chromedriver                        0x000000010660231c chromedriver + 426780
+6   chromedriver                        0x0000000106636587 chromedriver + 640391
+7   chromedriver                        0x0000000106636a61 chromedriver + 641633
+8   chromedriver                        0x000000010662b137 chromedriver + 594231
+9   chromedriver                        0x00000001066537fd chromedriver + 759805
+10  chromedriver                        0x000000010662b075 chromedriver + 594037
+11  chromedriver                        0x000000010665392e chromedriver + 760110
+12  chromedriver                        0x0000000106666bd9 chromedriver + 838617
+13  chromedriver                        0x0000000106653603 chromedriver + 759299
+14  chromedriver                        0x0000000106629990 chromedriver + 588176
+15  chromedriver                        0x000000010662aa75 chromedriver + 592501
+16  chromedriver                        0x00000001069b86cd chromedriver + 4318925
+17  chromedriver                        0x00000001069bcf35 chromedriver + 4337461
+18  chromedriver                        0x00000001069c41ff chromedriver + 4366847
+19  chromedriver                        0x00000001069bdc5a chromedriver + 4340826
+20  chromedriver                        0x0000000106993c2c chromedriver + 4168748
+21  chromedriver                        0x00000001069da4f8 chromedriver + 4457720
+22  chromedriver                        0x00000001069da693 chromedriver + 4458131
+23  chromedriver                        0x00000001069efa3e chromedriver + 4545086
+24  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+25  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:27:48,693 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_element(By.CSS_SELECTOR, 'div.N_3Z8 >  div').text
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 419, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.N_3Z8 >  div"}
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010e982788 chromedriver + 4515720
+1   chromedriver                        0x000000010e9069d3 chromedriver + 4008403
+2   chromedriver                        0x000000010e59912a chromedriver + 413994
+3   chromedriver                        0x000000010e5d0873 chromedriver + 641139
+4   chromedriver                        0x000000010e5d0a61 chromedriver + 641633
+5   chromedriver                        0x000000010e5c5137 chromedriver + 594231
+6   chromedriver                        0x000000010e5ed7fd chromedriver + 759805
+7   chromedriver                        0x000000010e5c5075 chromedriver + 594037
+8   chromedriver                        0x000000010e5ed92e chromedriver + 760110
+9   chromedriver                        0x000000010e600bd9 chromedriver + 838617
+10  chromedriver                        0x000000010e5ed603 chromedriver + 759299
+11  chromedriver                        0x000000010e5c3990 chromedriver + 588176
+12  chromedriver                        0x000000010e5c4a75 chromedriver + 592501
+13  chromedriver                        0x000000010e9526cd chromedriver + 4318925
+14  chromedriver                        0x000000010e956f35 chromedriver + 4337461
+15  chromedriver                        0x000000010e95e1ff chromedriver + 4366847
+16  chromedriver                        0x000000010e957c5a chromedriver + 4340826
+17  chromedriver                        0x000000010e92dc2c chromedriver + 4168748
+18  chromedriver                        0x000000010e9744f8 chromedriver + 4457720
+19  chromedriver                        0x000000010e974693 chromedriver + 4458131
+20  chromedriver                        0x000000010e989a3e chromedriver + 4545086
+21  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+22  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:28:33,889 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_element(By.CSS_SELECTOR, 'div.N_3Z8').text
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 419, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.N_3Z8"}
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010319e788 chromedriver + 4515720
+1   chromedriver                        0x00000001031229d3 chromedriver + 4008403
+2   chromedriver                        0x0000000102db512a chromedriver + 413994
+3   chromedriver                        0x0000000102dec873 chromedriver + 641139
+4   chromedriver                        0x0000000102deca61 chromedriver + 641633
+5   chromedriver                        0x0000000102de1137 chromedriver + 594231
+6   chromedriver                        0x0000000102e097fd chromedriver + 759805
+7   chromedriver                        0x0000000102de1075 chromedriver + 594037
+8   chromedriver                        0x0000000102e0992e chromedriver + 760110
+9   chromedriver                        0x0000000102e1cbd9 chromedriver + 838617
+10  chromedriver                        0x0000000102e09603 chromedriver + 759299
+11  chromedriver                        0x0000000102ddf990 chromedriver + 588176
+12  chromedriver                        0x0000000102de0a75 chromedriver + 592501
+13  chromedriver                        0x000000010316e6cd chromedriver + 4318925
+14  chromedriver                        0x0000000103172f35 chromedriver + 4337461
+15  chromedriver                        0x000000010317a1ff chromedriver + 4366847
+16  chromedriver                        0x0000000103173c5a chromedriver + 4340826
+17  chromedriver                        0x0000000103149c2c chromedriver + 4168748
+18  chromedriver                        0x00000001031904f8 chromedriver + 4457720
+19  chromedriver                        0x0000000103190693 chromedriver + 4458131
+20  chromedriver                        0x00000001031a5a3e chromedriver + 4545086
+21  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+22  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:29:17,604 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_elements(By.CSS_SELECTOR, 'div.N_3Z8').text
+AttributeError: 'list' object has no attribute 'text'
+2022-09-20 17:30:28,237 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_element(By.CSS_SELECTOR, 'div.N_3Z8 > div.W38UD')
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 419, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.N_3Z8 > div.W38UD"}
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000104176788 chromedriver + 4515720
+1   chromedriver                        0x00000001040fa9d3 chromedriver + 4008403
+2   chromedriver                        0x0000000103d8d12a chromedriver + 413994
+3   chromedriver                        0x0000000103dc4873 chromedriver + 641139
+4   chromedriver                        0x0000000103dc4a61 chromedriver + 641633
+5   chromedriver                        0x0000000103db9137 chromedriver + 594231
+6   chromedriver                        0x0000000103de17fd chromedriver + 759805
+7   chromedriver                        0x0000000103db9075 chromedriver + 594037
+8   chromedriver                        0x0000000103de192e chromedriver + 760110
+9   chromedriver                        0x0000000103df4bd9 chromedriver + 838617
+10  chromedriver                        0x0000000103de1603 chromedriver + 759299
+11  chromedriver                        0x0000000103db7990 chromedriver + 588176
+12  chromedriver                        0x0000000103db8a75 chromedriver + 592501
+13  chromedriver                        0x00000001041466cd chromedriver + 4318925
+14  chromedriver                        0x000000010414af35 chromedriver + 4337461
+15  chromedriver                        0x00000001041521ff chromedriver + 4366847
+16  chromedriver                        0x000000010414bc5a chromedriver + 4340826
+17  chromedriver                        0x0000000104121c2c chromedriver + 4168748
+18  chromedriver                        0x00000001041684f8 chromedriver + 4457720
+19  chromedriver                        0x0000000104168693 chromedriver + 4458131
+20  chromedriver                        0x000000010417da3e chromedriver + 4545086
+21  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+22  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:32:45,285 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 55, in main
+    store_pic = store.find_element(By.CSS_SELECTOR, 'div.N_3Z8 > div > a > div')
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 419, in find_element
+    return self._execute(Command.FIND_CHILD_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.N_3Z8 > div > a > div"}
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000107e45788 chromedriver + 4515720
+1   chromedriver                        0x0000000107dc99d3 chromedriver + 4008403
+2   chromedriver                        0x0000000107a5c12a chromedriver + 413994
+3   chromedriver                        0x0000000107a93873 chromedriver + 641139
+4   chromedriver                        0x0000000107a93a61 chromedriver + 641633
+5   chromedriver                        0x0000000107a88137 chromedriver + 594231
+6   chromedriver                        0x0000000107ab07fd chromedriver + 759805
+7   chromedriver                        0x0000000107a88075 chromedriver + 594037
+8   chromedriver                        0x0000000107ab092e chromedriver + 760110
+9   chromedriver                        0x0000000107ac3bd9 chromedriver + 838617
+10  chromedriver                        0x0000000107ab0603 chromedriver + 759299
+11  chromedriver                        0x0000000107a86990 chromedriver + 588176
+12  chromedriver                        0x0000000107a87a75 chromedriver + 592501
+13  chromedriver                        0x0000000107e156cd chromedriver + 4318925
+14  chromedriver                        0x0000000107e19f35 chromedriver + 4337461
+15  chromedriver                        0x0000000107e211ff chromedriver + 4366847
+16  chromedriver                        0x0000000107e1ac5a chromedriver + 4340826
+17  chromedriver                        0x0000000107df0c2c chromedriver + 4168748
+18  chromedriver                        0x0000000107e374f8 chromedriver + 4457720
+19  chromedriver                        0x0000000107e37693 chromedriver + 4458131
+20  chromedriver                        0x0000000107e4ca3e chromedriver + 4545086
+21  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+22  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:37:57,737 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 56, in main
+    store_pic = store.find_elements(By.CSS_SELECTOR, 'div.N_3Z8 > div.W.38UD')
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 443, in find_elements
+    return self._execute(Command.FIND_CHILD_ELEMENTS,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x00000001031a7788 chromedriver + 4515720
+1   chromedriver                        0x000000010312b9d3 chromedriver + 4008403
+2   chromedriver                        0x0000000102dbe12a chromedriver + 413994
+3   chromedriver                        0x0000000102dc11b7 chromedriver + 426423
+4   chromedriver                        0x0000000102dc105f chromedriver + 426079
+5   chromedriver                        0x0000000102dc131c chromedriver + 426780
+6   chromedriver                        0x0000000102df5587 chromedriver + 640391
+7   chromedriver                        0x0000000102df5a61 chromedriver + 641633
+8   chromedriver                        0x0000000102dea644 chromedriver + 595524
+9   chromedriver                        0x0000000102e127fd chromedriver + 759805
+10  chromedriver                        0x0000000102dea075 chromedriver + 594037
+11  chromedriver                        0x0000000102e1292e chromedriver + 760110
+12  chromedriver                        0x0000000102e25bd9 chromedriver + 838617
+13  chromedriver                        0x0000000102e12603 chromedriver + 759299
+14  chromedriver                        0x0000000102de8990 chromedriver + 588176
+15  chromedriver                        0x0000000102de9a75 chromedriver + 592501
+16  chromedriver                        0x00000001031776cd chromedriver + 4318925
+17  chromedriver                        0x000000010317bf35 chromedriver + 4337461
+18  chromedriver                        0x00000001031831ff chromedriver + 4366847
+19  chromedriver                        0x000000010317cc5a chromedriver + 4340826
+20  chromedriver                        0x0000000103152c2c chromedriver + 4168748
+21  chromedriver                        0x00000001031994f8 chromedriver + 4457720
+22  chromedriver                        0x0000000103199693 chromedriver + 4458131
+23  chromedriver                        0x00000001031aea3e chromedriver + 4545086
+24  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+25  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 17:38:46,878 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 56, in main
+    store_pic = store.find_elements(By.CSS_SELECTOR, 'div.N_3Z8 > div.W.38UD > a')
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 443, in find_elements
+    return self._execute(Command.FIND_CHILD_ELEMENTS,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010c99f788 chromedriver + 4515720
+1   chromedriver                        0x000000010c9239d3 chromedriver + 4008403
+2   chromedriver                        0x000000010c5b612a chromedriver + 413994
+3   chromedriver                        0x000000010c5b91b7 chromedriver + 426423
+4   chromedriver                        0x000000010c5b905f chromedriver + 426079
+5   chromedriver                        0x000000010c5b931c chromedriver + 426780
+6   chromedriver                        0x000000010c5ed587 chromedriver + 640391
+7   chromedriver                        0x000000010c5eda61 chromedriver + 641633
+8   chromedriver                        0x000000010c5e2644 chromedriver + 595524
+9   chromedriver                        0x000000010c60a7fd chromedriver + 759805
+10  chromedriver                        0x000000010c5e2075 chromedriver + 594037
+11  chromedriver                        0x000000010c60a92e chromedriver + 760110
+12  chromedriver                        0x000000010c61dbd9 chromedriver + 838617
+13  chromedriver                        0x000000010c60a603 chromedriver + 759299
+14  chromedriver                        0x000000010c5e0990 chromedriver + 588176
+15  chromedriver                        0x000000010c5e1a75 chromedriver + 592501
+16  chromedriver                        0x000000010c96f6cd chromedriver + 4318925
+17  chromedriver                        0x000000010c973f35 chromedriver + 4337461
+18  chromedriver                        0x000000010c97b1ff chromedriver + 4366847
+19  chromedriver                        0x000000010c974c5a chromedriver + 4340826
+20  chromedriver                        0x000000010c94ac2c chromedriver + 4168748
+21  chromedriver                        0x000000010c9914f8 chromedriver + 4457720
+22  chromedriver                        0x000000010c991693 chromedriver + 4458131
+23  chromedriver                        0x000000010c9a6a3e chromedriver + 4545086
+24  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+25  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 19:02:19,380 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 59, in main
+    print(pic.get_attribute('style'))
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 59, in main
+    print(pic.get_attribute('style'))
+  File "_pydevd_bundle/pydevd_cython_darwin_38_64.pyx", line 1179, in _pydevd_bundle.pydevd_cython_darwin_38_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle/pydevd_cython_darwin_38_64.pyx", line 620, in _pydevd_bundle.pydevd_cython_darwin_38_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_38_64.pyx", line 929, in _pydevd_bundle.pydevd_cython_darwin_38_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_38_64.pyx", line 920, in _pydevd_bundle.pydevd_cython_darwin_38_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle/pydevd_cython_darwin_38_64.pyx", line 317, in _pydevd_bundle.pydevd_cython_darwin_38_64.PyDBFrame.do_wait_suspend
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers/pydev/pydevd.py", line 1147, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "/Applications/PyCharm.app/Contents/plugins/python/helpers/pydev/pydevd.py", line 1162, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+2022-09-20 19:05:58,779 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 59, in main
+    m = re.search('url\("(.*?)"\)', store_pic_all)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/re.py", line 199, in search
+    return _compile(pattern, flags).search(string)
+TypeError: expected string or bytes-like object
+2022-09-20 19:06:58,713 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 57, in main
+    store_pic_all = store_pic_list[0]
+IndexError: list index out of range
+2022-09-20 19:08:54,450 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 57, in main
+    store_pic_all = store_pic_list[0]
+IndexError: list index out of range
+2022-09-20 19:36:45,915 - cjk-logger - ERROR - 서울대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 29, in main
+    switch_frame('searchIframe')
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 89, in switch_frame
+    driver.switch_to.default_content()
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/switch_to.py", line 68, in default_content
+    self._driver.execute(Command.SWITCH_TO_FRAME, {'id': None})
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: window was already closed
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000102f1b788 chromedriver + 4515720
+1   chromedriver                        0x0000000102e9f9d3 chromedriver + 4008403
+2   chromedriver                        0x0000000102b3212a chromedriver + 413994
+3   chromedriver                        0x0000000102b13ad4 chromedriver + 289492
+4   chromedriver                        0x0000000102b17d4d chromedriver + 306509
+5   chromedriver                        0x0000000102b1ce7c chromedriver + 327292
+6   chromedriver                        0x0000000102b336b2 chromedriver + 419506
+7   chromedriver                        0x0000000102b99221 chromedriver + 836129
+8   chromedriver                        0x0000000102b86603 chromedriver + 759299
+9   chromedriver                        0x0000000102b5c990 chromedriver + 588176
+10  chromedriver                        0x0000000102b5da75 chromedriver + 592501
+11  chromedriver                        0x0000000102eeb6cd chromedriver + 4318925
+12  chromedriver                        0x0000000102eeff35 chromedriver + 4337461
+13  chromedriver                        0x0000000102ef71ff chromedriver + 4366847
+14  chromedriver                        0x0000000102ef0c5a chromedriver + 4340826
+15  chromedriver                        0x0000000102ec6c2c chromedriver + 4168748
+16  chromedriver                        0x0000000102f0d4f8 chromedriver + 4457720
+17  chromedriver                        0x0000000102f0d693 chromedriver + 4458131
+18  chromedriver                        0x0000000102f22a3e chromedriver + 4545086
+19  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+20  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-20 19:37:50,102 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1245, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1291, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1240, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1008, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 948, in send
+    self.connect()
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x109ca60d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 21, in main
+    driver.get(url)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in get
+    self.execute(Command.GET, {'url': url})
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 426, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 344, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 366, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 78, in request
+    return self.request_encode_body(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 815, in urlopen
+    return self.urlopen(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 815, in urlopen
+    return self.urlopen(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 815, in urlopen
+    return self.urlopen(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=62037): Max retries exceeded with url: /session/6b15eb9f5b46d8c049af166f75cc45be/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109ca60d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2022-09-20 19:39:55,121 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1245, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1291, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1240, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1008, in _send_output
+    self.send(msg)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 948, in send
+    self.connect()
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x109d84190>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 21, in main
+    driver.get(url)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in get
+    self.execute(Command.GET, {'url': url})
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 426, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 344, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 366, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 78, in request
+    return self.request_encode_body(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 815, in urlopen
+    return self.urlopen(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 815, in urlopen
+    return self.urlopen(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 815, in urlopen
+    return self.urlopen(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=62608): Max retries exceeded with url: /session/364f67b09e6d4b86c7f79004a614db29/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x109d84190>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2022-09-20 19:42:28,010 - cjk-logger - ERROR - 서울대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 30, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 99, in page_down
+    body.send_keys(Keys.PAGE_DOWN)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 223, in send_keys
+    self._execute(Command.SEND_KEYS_TO_ELEMENT,
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010d692788 chromedriver + 4515720
+1   chromedriver                        0x000000010d6169d3 chromedriver + 4008403
+2   chromedriver                        0x000000010d2a912a chromedriver + 413994
+3   chromedriver                        0x000000010d289a93 chromedriver + 285331
+4   chromedriver                        0x000000010d300d8b chromedriver + 773515
+5   chromedriver                        0x000000010d3101d3 chromedriver + 836051
+6   chromedriver                        0x000000010d2fd603 chromedriver + 759299
+7   chromedriver                        0x000000010d2d3990 chromedriver + 588176
+8   chromedriver                        0x000000010d2d4a75 chromedriver + 592501
+9   chromedriver                        0x000000010d6626cd chromedriver + 4318925
+10  chromedriver                        0x000000010d666f35 chromedriver + 4337461
+11  chromedriver                        0x000000010d66e1ff chromedriver + 4366847
+12  chromedriver                        0x000000010d667c5a chromedriver + 4340826
+13  chromedriver                        0x000000010d63dc2c chromedriver + 4168748
+14  chromedriver                        0x000000010d6844f8 chromedriver + 4457720
+15  chromedriver                        0x000000010d684693 chromedriver + 4458131
+16  chromedriver                        0x000000010d699a3e chromedriver + 4545086
+17  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+18  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 09:51:17,147 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 28, in main
+    time_wait(10, 'div.input_box > input.input_search')
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 91, in time_wait
+    return wait
+UnboundLocalError: local variable 'wait' referenced before assignment
+2022-09-21 09:52:02,429 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 28, in main
+    time_wait(10, 'div.input_box > input.input_search')
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 91, in time_wait
+    return wait
+UnboundLocalError: local variable 'wait' referenced before assignment
+2022-09-21 09:54:45,442 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 36, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 103, in page_down
+    body.click()
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <iframe _ngcontent-cyb-c107="" src="about:blank" id="searchIframe" title="검색어 '고려대학교맛집'에 대한 결과" cd_frame_id_="5b911131819838760379a893635f4c79"></iframe> is not clickable at point (258, 578). Other element would receive the click: <combined-search-list _ngcontent-cyb-c134="" _nghost-cyb-c132="" style="visibility: visible;">...</combined-search-list>
+  (Session info: headless chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000108cd1788 chromedriver + 4515720
+1   chromedriver                        0x0000000108c559d3 chromedriver + 4008403
+2   chromedriver                        0x00000001088e812a chromedriver + 413994
+3   chromedriver                        0x00000001089271b2 chromedriver + 672178
+4   chromedriver                        0x0000000108924c27 chromedriver + 662567
+5   chromedriver                        0x0000000108922865 chromedriver + 653413
+6   chromedriver                        0x0000000108920f57 chromedriver + 646999
+7   chromedriver                        0x0000000108914861 chromedriver + 596065
+8   chromedriver                        0x000000010893c7d2 chromedriver + 759762
+9   chromedriver                        0x0000000108914075 chromedriver + 594037
+10  chromedriver                        0x000000010893c92e chromedriver + 760110
+11  chromedriver                        0x000000010894fbd9 chromedriver + 838617
+12  chromedriver                        0x000000010893c603 chromedriver + 759299
+13  chromedriver                        0x0000000108912990 chromedriver + 588176
+14  chromedriver                        0x0000000108913a75 chromedriver + 592501
+15  chromedriver                        0x0000000108ca16cd chromedriver + 4318925
+16  chromedriver                        0x0000000108ca5f35 chromedriver + 4337461
+17  chromedriver                        0x0000000108cad1ff chromedriver + 4366847
+18  chromedriver                        0x0000000108ca6c5a chromedriver + 4340826
+19  chromedriver                        0x0000000108c7cc2c chromedriver + 4168748
+20  chromedriver                        0x0000000108cc34f8 chromedriver + 4457720
+21  chromedriver                        0x0000000108cc3693 chromedriver + 4458131
+22  chromedriver                        0x0000000108cd8a3e chromedriver + 4545086
+23  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+24  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 10:00:59,095 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 36, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 103, in page_down
+    body.click()
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <iframe _ngcontent-fha-c107="" src="about:blank" id="searchIframe" title="검색어 '고려대학교맛집'에 대한 결과" cd_frame_id_="31cd9ffbe9d797812ec9b302d3399edc"></iframe> is not clickable at point (258, 578). Other element would receive the click: <combined-search-list _ngcontent-fha-c134="" _nghost-fha-c132="" style="visibility: visible;">...</combined-search-list>
+  (Session info: headless chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x00000001071ae788 chromedriver + 4515720
+1   chromedriver                        0x00000001071329d3 chromedriver + 4008403
+2   chromedriver                        0x0000000106dc512a chromedriver + 413994
+3   chromedriver                        0x0000000106e041b2 chromedriver + 672178
+4   chromedriver                        0x0000000106e01c27 chromedriver + 662567
+5   chromedriver                        0x0000000106dff865 chromedriver + 653413
+6   chromedriver                        0x0000000106dfdf57 chromedriver + 646999
+7   chromedriver                        0x0000000106df1861 chromedriver + 596065
+8   chromedriver                        0x0000000106e197d2 chromedriver + 759762
+9   chromedriver                        0x0000000106df1075 chromedriver + 594037
+10  chromedriver                        0x0000000106e1992e chromedriver + 760110
+11  chromedriver                        0x0000000106e2cbd9 chromedriver + 838617
+12  chromedriver                        0x0000000106e19603 chromedriver + 759299
+13  chromedriver                        0x0000000106def990 chromedriver + 588176
+14  chromedriver                        0x0000000106df0a75 chromedriver + 592501
+15  chromedriver                        0x000000010717e6cd chromedriver + 4318925
+16  chromedriver                        0x0000000107182f35 chromedriver + 4337461
+17  chromedriver                        0x000000010718a1ff chromedriver + 4366847
+18  chromedriver                        0x0000000107183c5a chromedriver + 4340826
+19  chromedriver                        0x0000000107159c2c chromedriver + 4168748
+20  chromedriver                        0x00000001071a04f8 chromedriver + 4457720
+21  chromedriver                        0x00000001071a0693 chromedriver + 4458131
+22  chromedriver                        0x00000001071b5a3e chromedriver + 4545086
+23  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+24  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 10:09:44,982 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 36, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 103, in page_down
+    driver.execute_script("document.querySelector('body')[0].click()")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: Cannot read properties of undefined (reading 'click')
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000106900788 chromedriver + 4515720
+1   chromedriver                        0x00000001068849d3 chromedriver + 4008403
+2   chromedriver                        0x000000010651712a chromedriver + 413994
+3   chromedriver                        0x000000010651a1b7 chromedriver + 426423
+4   chromedriver                        0x000000010651a05f chromedriver + 426079
+5   chromedriver                        0x000000010651ac6a chromedriver + 429162
+6   chromedriver                        0x000000010657f8a6 chromedriver + 841894
+7   chromedriver                        0x000000010656b7d2 chromedriver + 759762
+8   chromedriver                        0x000000010657ebd9 chromedriver + 838617
+9   chromedriver                        0x000000010656b603 chromedriver + 759299
+10  chromedriver                        0x0000000106541990 chromedriver + 588176
+11  chromedriver                        0x0000000106542a75 chromedriver + 592501
+12  chromedriver                        0x00000001068d06cd chromedriver + 4318925
+13  chromedriver                        0x00000001068d4f35 chromedriver + 4337461
+14  chromedriver                        0x00000001068dc1ff chromedriver + 4366847
+15  chromedriver                        0x00000001068d5c5a chromedriver + 4340826
+16  chromedriver                        0x00000001068abc2c chromedriver + 4168748
+17  chromedriver                        0x00000001068f24f8 chromedriver + 4457720
+18  chromedriver                        0x00000001068f2693 chromedriver + 4458131
+19  chromedriver                        0x0000000106907a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 10:12:28,031 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 28, in main
+    time_wait(10, 'div.input_box > input.input_search')
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 91, in time_wait
+    return wait
+UnboundLocalError: local variable 'wait' referenced before assignment
+2022-09-21 10:34:08,575 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 37, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 109, in page_down
+    driver.execute_script("myIframe.contentWindow.scrollTo(0, document.body.scrollHeight);")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: myIframe is not defined
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010ec22788 chromedriver + 4515720
+1   chromedriver                        0x000000010eba69d3 chromedriver + 4008403
+2   chromedriver                        0x000000010e83912a chromedriver + 413994
+3   chromedriver                        0x000000010e83c1b7 chromedriver + 426423
+4   chromedriver                        0x000000010e83c05f chromedriver + 426079
+5   chromedriver                        0x000000010e83cc6a chromedriver + 429162
+6   chromedriver                        0x000000010e8a18a6 chromedriver + 841894
+7   chromedriver                        0x000000010e88d7d2 chromedriver + 759762
+8   chromedriver                        0x000000010e8a0bd9 chromedriver + 838617
+9   chromedriver                        0x000000010e88d603 chromedriver + 759299
+10  chromedriver                        0x000000010e863990 chromedriver + 588176
+11  chromedriver                        0x000000010e864a75 chromedriver + 592501
+12  chromedriver                        0x000000010ebf26cd chromedriver + 4318925
+13  chromedriver                        0x000000010ebf6f35 chromedriver + 4337461
+14  chromedriver                        0x000000010ebfe1ff chromedriver + 4366847
+15  chromedriver                        0x000000010ebf7c5a chromedriver + 4340826
+16  chromedriver                        0x000000010ebcdc2c chromedriver + 4168748
+17  chromedriver                        0x000000010ec144f8 chromedriver + 4457720
+18  chromedriver                        0x000000010ec14693 chromedriver + 4458131
+19  chromedriver                        0x000000010ec29a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 10:34:33,770 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 37, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 110, in page_down
+    driver.execute_script("myIframe.contentWindow.scrollTo(0, 100000);")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: myIframe is not defined
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010939e788 chromedriver + 4515720
+1   chromedriver                        0x00000001093229d3 chromedriver + 4008403
+2   chromedriver                        0x0000000108fb512a chromedriver + 413994
+3   chromedriver                        0x0000000108fb81b7 chromedriver + 426423
+4   chromedriver                        0x0000000108fb805f chromedriver + 426079
+5   chromedriver                        0x0000000108fb8c6a chromedriver + 429162
+6   chromedriver                        0x000000010901d8a6 chromedriver + 841894
+7   chromedriver                        0x00000001090097d2 chromedriver + 759762
+8   chromedriver                        0x000000010901cbd9 chromedriver + 838617
+9   chromedriver                        0x0000000109009603 chromedriver + 759299
+10  chromedriver                        0x0000000108fdf990 chromedriver + 588176
+11  chromedriver                        0x0000000108fe0a75 chromedriver + 592501
+12  chromedriver                        0x000000010936e6cd chromedriver + 4318925
+13  chromedriver                        0x0000000109372f35 chromedriver + 4337461
+14  chromedriver                        0x000000010937a1ff chromedriver + 4366847
+15  chromedriver                        0x0000000109373c5a chromedriver + 4340826
+16  chromedriver                        0x0000000109349c2c chromedriver + 4168748
+17  chromedriver                        0x00000001093904f8 chromedriver + 4457720
+18  chromedriver                        0x0000000109390693 chromedriver + 4458131
+19  chromedriver                        0x00000001093a5a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 10:35:52,165 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 37, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 110, in page_down
+    driver.execute_script("searchIframe.contentWindow.scrollTo(0, 100000);")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: searchIframe is not defined
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000100da0788 chromedriver + 4515720
+1   chromedriver                        0x0000000100d249d3 chromedriver + 4008403
+2   chromedriver                        0x00000001009b712a chromedriver + 413994
+3   chromedriver                        0x00000001009ba1b7 chromedriver + 426423
+4   chromedriver                        0x00000001009ba05f chromedriver + 426079
+5   chromedriver                        0x00000001009bac6a chromedriver + 429162
+6   chromedriver                        0x0000000100a1f8a6 chromedriver + 841894
+7   chromedriver                        0x0000000100a0b7d2 chromedriver + 759762
+8   chromedriver                        0x0000000100a1ebd9 chromedriver + 838617
+9   chromedriver                        0x0000000100a0b603 chromedriver + 759299
+10  chromedriver                        0x00000001009e1990 chromedriver + 588176
+11  chromedriver                        0x00000001009e2a75 chromedriver + 592501
+12  chromedriver                        0x0000000100d706cd chromedriver + 4318925
+13  chromedriver                        0x0000000100d74f35 chromedriver + 4337461
+14  chromedriver                        0x0000000100d7c1ff chromedriver + 4366847
+15  chromedriver                        0x0000000100d75c5a chromedriver + 4340826
+16  chromedriver                        0x0000000100d4bc2c chromedriver + 4168748
+17  chromedriver                        0x0000000100d924f8 chromedriver + 4457720
+18  chromedriver                        0x0000000100d92693 chromedriver + 4458131
+19  chromedriver                        0x0000000100da7a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 10:36:53,174 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 37, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 110, in page_down
+    driver.execute_script("document.getElementById('searchIframe').contentWindow.scrollTo(0, 100000);")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: Cannot read properties of null (reading 'contentWindow')
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010cf5c788 chromedriver + 4515720
+1   chromedriver                        0x000000010cee09d3 chromedriver + 4008403
+2   chromedriver                        0x000000010cb7312a chromedriver + 413994
+3   chromedriver                        0x000000010cb761b7 chromedriver + 426423
+4   chromedriver                        0x000000010cb7605f chromedriver + 426079
+5   chromedriver                        0x000000010cb76c6a chromedriver + 429162
+6   chromedriver                        0x000000010cbdb8a6 chromedriver + 841894
+7   chromedriver                        0x000000010cbc77d2 chromedriver + 759762
+8   chromedriver                        0x000000010cbdabd9 chromedriver + 838617
+9   chromedriver                        0x000000010cbc7603 chromedriver + 759299
+10  chromedriver                        0x000000010cb9d990 chromedriver + 588176
+11  chromedriver                        0x000000010cb9ea75 chromedriver + 592501
+12  chromedriver                        0x000000010cf2c6cd chromedriver + 4318925
+13  chromedriver                        0x000000010cf30f35 chromedriver + 4337461
+14  chromedriver                        0x000000010cf381ff chromedriver + 4366847
+15  chromedriver                        0x000000010cf31c5a chromedriver + 4340826
+16  chromedriver                        0x000000010cf07c2c chromedriver + 4168748
+17  chromedriver                        0x000000010cf4e4f8 chromedriver + 4457720
+18  chromedriver                        0x000000010cf4e693 chromedriver + 4458131
+19  chromedriver                        0x000000010cf63a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 10:40:42,238 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 37, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 107, in page_down
+    driver.execute_script("console.log(document.getElementById('searchIframe').contentWindow)")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: Cannot read properties of null (reading 'contentWindow')
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000106c69788 chromedriver + 4515720
+1   chromedriver                        0x0000000106bed9d3 chromedriver + 4008403
+2   chromedriver                        0x000000010688012a chromedriver + 413994
+3   chromedriver                        0x00000001068831b7 chromedriver + 426423
+4   chromedriver                        0x000000010688305f chromedriver + 426079
+5   chromedriver                        0x0000000106883c6a chromedriver + 429162
+6   chromedriver                        0x00000001068e88a6 chromedriver + 841894
+7   chromedriver                        0x00000001068d47d2 chromedriver + 759762
+8   chromedriver                        0x00000001068e7bd9 chromedriver + 838617
+9   chromedriver                        0x00000001068d4603 chromedriver + 759299
+10  chromedriver                        0x00000001068aa990 chromedriver + 588176
+11  chromedriver                        0x00000001068aba75 chromedriver + 592501
+12  chromedriver                        0x0000000106c396cd chromedriver + 4318925
+13  chromedriver                        0x0000000106c3df35 chromedriver + 4337461
+14  chromedriver                        0x0000000106c451ff chromedriver + 4366847
+15  chromedriver                        0x0000000106c3ec5a chromedriver + 4340826
+16  chromedriver                        0x0000000106c14c2c chromedriver + 4168748
+17  chromedriver                        0x0000000106c5b4f8 chromedriver + 4457720
+18  chromedriver                        0x0000000106c5b693 chromedriver + 4458131
+19  chromedriver                        0x0000000106c70a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 11:19:49,963 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 40, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 110, in page_down
+    driver.execute_script("console.log(document.getElementById('searchIframe').contentWindow)")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: Cannot read properties of null (reading 'contentWindow')
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010682a788 chromedriver + 4515720
+1   chromedriver                        0x00000001067ae9d3 chromedriver + 4008403
+2   chromedriver                        0x000000010644112a chromedriver + 413994
+3   chromedriver                        0x00000001064441b7 chromedriver + 426423
+4   chromedriver                        0x000000010644405f chromedriver + 426079
+5   chromedriver                        0x0000000106444c6a chromedriver + 429162
+6   chromedriver                        0x00000001064a98a6 chromedriver + 841894
+7   chromedriver                        0x00000001064957d2 chromedriver + 759762
+8   chromedriver                        0x00000001064a8bd9 chromedriver + 838617
+9   chromedriver                        0x0000000106495603 chromedriver + 759299
+10  chromedriver                        0x000000010646b990 chromedriver + 588176
+11  chromedriver                        0x000000010646ca75 chromedriver + 592501
+12  chromedriver                        0x00000001067fa6cd chromedriver + 4318925
+13  chromedriver                        0x00000001067fef35 chromedriver + 4337461
+14  chromedriver                        0x00000001068061ff chromedriver + 4366847
+15  chromedriver                        0x00000001067ffc5a chromedriver + 4340826
+16  chromedriver                        0x00000001067d5c2c chromedriver + 4168748
+17  chromedriver                        0x000000010681c4f8 chromedriver + 4457720
+18  chromedriver                        0x000000010681c693 chromedriver + 4458131
+19  chromedriver                        0x0000000106831a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 11:23:56,533 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 40, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 110, in page_down
+    driver.execute_script("console.log(document.getElementById('searchIframe').contentWindow)")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: Cannot read properties of null (reading 'contentWindow')
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000110184788 chromedriver + 4515720
+1   chromedriver                        0x00000001101089d3 chromedriver + 4008403
+2   chromedriver                        0x000000010fd9b12a chromedriver + 413994
+3   chromedriver                        0x000000010fd9e1b7 chromedriver + 426423
+4   chromedriver                        0x000000010fd9e05f chromedriver + 426079
+5   chromedriver                        0x000000010fd9ec6a chromedriver + 429162
+6   chromedriver                        0x000000010fe038a6 chromedriver + 841894
+7   chromedriver                        0x000000010fdef7d2 chromedriver + 759762
+8   chromedriver                        0x000000010fe02bd9 chromedriver + 838617
+9   chromedriver                        0x000000010fdef603 chromedriver + 759299
+10  chromedriver                        0x000000010fdc5990 chromedriver + 588176
+11  chromedriver                        0x000000010fdc6a75 chromedriver + 592501
+12  chromedriver                        0x00000001101546cd chromedriver + 4318925
+13  chromedriver                        0x0000000110158f35 chromedriver + 4337461
+14  chromedriver                        0x00000001101601ff chromedriver + 4366847
+15  chromedriver                        0x0000000110159c5a chromedriver + 4340826
+16  chromedriver                        0x000000011012fc2c chromedriver + 4168748
+17  chromedriver                        0x00000001101764f8 chromedriver + 4457720
+18  chromedriver                        0x0000000110176693 chromedriver + 4458131
+19  chromedriver                        0x000000011018ba3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 11:25:45,078 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 40, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 111, in page_down
+    driver.execute_script("console.log(document.getElementById('searchIframe').body.scrollHeight)")
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 491, in execute_script
+    return self.execute(command, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: javascript error: Cannot read properties of null (reading 'body')
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x0000000106efd788 chromedriver + 4515720
+1   chromedriver                        0x0000000106e819d3 chromedriver + 4008403
+2   chromedriver                        0x0000000106b1412a chromedriver + 413994
+3   chromedriver                        0x0000000106b171b7 chromedriver + 426423
+4   chromedriver                        0x0000000106b1705f chromedriver + 426079
+5   chromedriver                        0x0000000106b17c6a chromedriver + 429162
+6   chromedriver                        0x0000000106b7c8a6 chromedriver + 841894
+7   chromedriver                        0x0000000106b687d2 chromedriver + 759762
+8   chromedriver                        0x0000000106b7bbd9 chromedriver + 838617
+9   chromedriver                        0x0000000106b68603 chromedriver + 759299
+10  chromedriver                        0x0000000106b3e990 chromedriver + 588176
+11  chromedriver                        0x0000000106b3fa75 chromedriver + 592501
+12  chromedriver                        0x0000000106ecd6cd chromedriver + 4318925
+13  chromedriver                        0x0000000106ed1f35 chromedriver + 4337461
+14  chromedriver                        0x0000000106ed91ff chromedriver + 4366847
+15  chromedriver                        0x0000000106ed2c5a chromedriver + 4340826
+16  chromedriver                        0x0000000106ea8c2c chromedriver + 4168748
+17  chromedriver                        0x0000000106eef4f8 chromedriver + 4457720
+18  chromedriver                        0x0000000106eef693 chromedriver + 4458131
+19  chromedriver                        0x0000000106f04a3e chromedriver + 4545086
+20  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+21  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-21 11:33:33,755 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 40, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 109, in page_down
+    driver.execute_scirpt("console.log(window)")
+AttributeError: 'WebDriver' object has no attribute 'execute_scirpt'
+2022-09-21 13:42:48,223 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1337, in getresponse
+    response.begin()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 307, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 276, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 93, in time_wait
+    wait = WebDriverWait(driver, num).until(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 81, in until
+    value = method(self._driver)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/support/expected_conditions.py", line 64, in _predicate
+    return driver.find_element(*locator)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 855, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 426, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 344, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 366, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 78, in request
+    return self.request_encode_body(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1337, in getresponse
+    response.begin()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 307, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 276, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1081, in emit
+    msg = self.format(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 925, in format
+    return fmt.format(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 664, in format
+    record.message = record.getMessage()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 34, in main
+    time_wait(10, 'div.input_box > input.input_search')
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 96, in time_wait
+    logger.exception(code, '태그를 찾지 못하였습니다.')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1469, in exception
+    self.error(msg, *args, exc_info=exc_info, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1463, in error
+    self._log(ERROR, msg, args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1577, in _log
+    self.handle(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1587, in handle
+    self.callHandlers(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1649, in callHandlers
+    hdlr.handle(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 950, in handle
+    self.emit(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1089, in emit
+    self.handleError(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1003, in handleError
+    traceback.print_exception(t, v, tb, None, sys.stderr)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/traceback.py", line 103, in print_exception
+    for line in TracebackException(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/traceback.py", line 509, in __init__
+    self.stack = StackSummary.extract(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/traceback.py", line 366, in extract
+    f.line
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/traceback.py", line 288, in line
+    self._line = linecache.getline(self.filename, self.lineno).strip()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/linecache.py", line 16, in getline
+    lines = getlines(filename, module_globals)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/linecache.py", line 58, in getlines
+    return updatecache(filename, module_globals)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/linecache.py", line 147, in updatecache
+    with tokenize.open(fullname) as fp:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/tokenize.py", line 394, in open
+    encoding, lines = detect_encoding(buffer.readline)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/tokenize.py", line 363, in detect_encoding
+    first = read_or_stop()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/tokenize.py", line 321, in read_or_stop
+    return readline()
+KeyboardInterrupt
+2022-09-21 15:41:57,123 - cjk-logger - ERROR - 고려대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 31, in main
+    driver.get(url)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in get
+    self.execute(Command.GET, {'url': url})
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 426, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 344, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/remote_connection.py", line 366, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 78, in request
+    return self.request_encode_body(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 1337, in getresponse
+    response.begin()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 307, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/http/client.py", line 268, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+2022-09-21 16:13:53,891 - cjk-logger - ERROR - 연세대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 30, in main
+    page_down(40)
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 96, in page_down
+    body = driver.find_element(By.CSS_SELECTOR, 'body')
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 855, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010baae788 chromedriver + 4515720
+1   chromedriver                        0x000000010ba329d3 chromedriver + 4008403
+2   chromedriver                        0x000000010b6c512a chromedriver + 413994
+3   chromedriver                        0x000000010b6a5a93 chromedriver + 285331
+4   chromedriver                        0x000000010b71cd8b chromedriver + 773515
+5   chromedriver                        0x000000010b72c1d3 chromedriver + 836051
+6   chromedriver                        0x000000010b719603 chromedriver + 759299
+7   chromedriver                        0x000000010b6ef990 chromedriver + 588176
+8   chromedriver                        0x000000010b6f0a75 chromedriver + 592501
+9   chromedriver                        0x000000010ba7e6cd chromedriver + 4318925
+10  chromedriver                        0x000000010ba82f35 chromedriver + 4337461
+11  chromedriver                        0x000000010ba8a1ff chromedriver + 4366847
+12  chromedriver                        0x000000010ba83c5a chromedriver + 4340826
+13  chromedriver                        0x000000010ba59c2c chromedriver + 4168748
+14  chromedriver                        0x000000010baa04f8 chromedriver + 4457720
+15  chromedriver                        0x000000010baa0693 chromedriver + 4458131
+16  chromedriver                        0x000000010bab5a3e chromedriver + 4545086
+17  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+18  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-22 01:54:35,911 - cjk-logger - ERROR - 한양대학교맛집 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/restaurant_crawling.py", line 36, in main
+    logger.info(f"검색 키워드 : {key_word}")
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1434, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1577, in _log
+    self.handle(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1587, in handle
+    self.callHandlers(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1649, in callHandlers
+    hdlr.handle(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 950, in handle
+    self.emit(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1183, in emit
+    StreamHandler.emit(self, record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 1081, in emit
+    msg = self.format(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 925, in format
+    return fmt.format(record)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 666, in format
+    record.asctime = self.formatTime(record, self.datefmt)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/logging/__init__.py", line 602, in formatTime
+    ct = self.converter(record.created)
+KeyboardInterrupt
+2022-09-22 02:08:16,160 - cjk-logger - ERROR - 대학교목록 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/university_crawling.py", line 39, in main
+    search = driver.find_element(By.CLASS_NAME, 'k+eAuyHO')
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 855, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "/Users/choi/Desktop/swJungle/cjk-road/cjk-env/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":".k+eAuyHO"}
+  (Session info: chrome=105.0.5195.125)
+Stacktrace:
+0   chromedriver                        0x000000010a929788 chromedriver + 4515720
+1   chromedriver                        0x000000010a8ad9d3 chromedriver + 4008403
+2   chromedriver                        0x000000010a54012a chromedriver + 413994
+3   chromedriver                        0x000000010a577873 chromedriver + 641139
+4   chromedriver                        0x000000010a577a61 chromedriver + 641633
+5   chromedriver                        0x000000010a5a9f64 chromedriver + 847716
+6   chromedriver                        0x000000010a5947fd chromedriver + 759805
+7   chromedriver                        0x000000010a5a7bd9 chromedriver + 838617
+8   chromedriver                        0x000000010a594603 chromedriver + 759299
+9   chromedriver                        0x000000010a56a990 chromedriver + 588176
+10  chromedriver                        0x000000010a56ba75 chromedriver + 592501
+11  chromedriver                        0x000000010a8f96cd chromedriver + 4318925
+12  chromedriver                        0x000000010a8fdf35 chromedriver + 4337461
+13  chromedriver                        0x000000010a9051ff chromedriver + 4366847
+14  chromedriver                        0x000000010a8fec5a chromedriver + 4340826
+15  chromedriver                        0x000000010a8d4c2c chromedriver + 4168748
+16  chromedriver                        0x000000010a91b4f8 chromedriver + 4457720
+17  chromedriver                        0x000000010a91b693 chromedriver + 4458131
+18  chromedriver                        0x000000010a930a3e chromedriver + 4545086
+19  libsystem_pthread.dylib             0x00007fff203438fc _pthread_start + 224
+20  libsystem_pthread.dylib             0x00007fff2033f443 thread_start + 15
+
+2022-09-22 03:20:21,825 - cjk-logger - ERROR - 대학교목록 크롤링 실패
+Traceback (most recent call last):
+  File "/Users/choi/Desktop/swJungle/cjk-road/batch/N_Map_Crawling/university_crawling.py", line 40, in main
+    for se in search:
+TypeError: 'WebElement' object is not iterable
