@@ -14,10 +14,9 @@ from batch.common.custom_logger import get_custom_logger
 import re
 
 
+logger = get_custom_logger("crawl")
 def main(key_word):
     try:
-        logger = get_custom_logger("crawl")
-
         options = webdriver.ChromeOptions()
         # options.add_argument('--headless')
         options.add_argument('--no-sandbox')
