@@ -35,77 +35,121 @@
     />
     <script src="{{url_for('static', filename='javascript.js')}}"></script>
 
+    <style>
+      #text_logo,
+      #text_login,
+      #text_logout,
+      #text_signin,
+      #text_user,
+      #text_univ {
+        text-decoration: none;
+      }
+
+      #text_logo:hover,
+      #text_login:hover,
+      #text_logout:hover,
+      #text_signin:hover,
+      #text_user:hover,
+      #text_univ:hover {
+        color: #fd0166;
+      }
+    </style>
     <title>Document</title>
-</head>
-<body>
-{%with messages = get_flashed_messages()%}
-  {%if messages %}
+  </head>
+  <body>
+    {%with messages = get_flashed_messages()%} {%if messages %}
     <script type="text/javascript">
       alert("{{messages[-1]}}");
     </script>
-    {%endif%}
-{%endwith%}
-<!-- header -->
-<nav
-        class="bg-white sticky top-0 z-50 flex justify-between px-20 py-4 items-center self-center"
->
-
-    <div class="flex">
-      <img class="w-10 mr-2" src="{{url_for('static', filename='src/img/logo_main.png')}}" alt=""><a class="text-xl text-gray-800 font-bold" href="/">
-      최정기로드</a></div>
-
-
-      {% block nav %} {% endblock %}
-      <div class="flex items-center self-center">
-        {% if not email %}
-        <ul class="flex items-center space-x-6 mb-0">
-          <a href="/login">
-            <li
-              class="font-semibold text-gray-800 px-3 py-1"
-              style="border: 3px solid #fd0166; border-radius: 10px"
-            >
-              로그인
-            </li>
-          </a>
-          <a href="/signin">
-            <li
-              class="font-semibold text-gray-800 px-3 py-1"
-              style="border: 3px solid #fd0166; border-radius: 10px"
-            >
-              회원가입
-            </li>
-          </a>
-        </ul>
-        {% else %}
-        <ul class="flex items-center space-x-6 mb-0">
-          <a href="university/list">
-            <li
-              class="font-semibold text-gray-800 px-3 py-1"
-              style="border: 3px solid #fd0166; border-radius: 10px"
-            >
-              등록요청대학
-            </li>
-          </a>
-          <a href="#">
-            <li
-              class="font-semibold text-gray-800 px-3 py-1"
-              style="border: 3px solid #fd0166; border-radius: 10px"
-            >
-              {{email}}님
-            </li>
-          </a>
-          <a href="/logout">
-            <li
-              class="font-semibold text-gray-800 px-3 py-1"
-              style="border: 3px solid #fd0166; border-radius: 10px"
-            >
-              로그아웃
-            </li>
-          </a>
-        </ul>
+    {%endif%} {%endwith%}
+    <!-- header -->
+    <nav
+      id="navbar"
+      class="bg-white sticky top-0 z-50 grid lg:grid-cols-3 px-20 py-4 items-center self-center"
+    >
+      <div class="flex space-x-3">
+        <div class="flex">
+          <img
+            class="w-10 mr-2"
+            src="{{url_for('static', filename='src/img/logo_main.png')}}"
+            alt=""
+          /><a
+            id="text_logo"
+            class="m-0 self-center text-3xl text-gray-800 font-bold"
+            href="/"
+          >
+            최정기로드</a
+          >
+        </div>
+        {% if email %}
+        <a
+          id="text_univ"
+          href="/university/list"
+          class="font-semibold text-gray-800 px-3 py-2"
+          style="border: 3px solid #fd0166; border-radius: 10px"
+        >
+          등록요청대학
+        </a>
         {% endif %}
       </div>
 
+      {% block nav %} {% endblock %}
+      <div class="flex justify-end items-center self-center">
+        {% if not email %}
+        <ul class="flex items-center space-x-6 mb-0">
+          <li
+            class="px-3 py-2"
+            style="border: 3px solid #fd0166; border-radius: 10px"
+          >
+            <a
+              class="font-semibold text-gray-800 px-3 py-2"
+              href="/login"
+              id="text_login"
+            >
+              로그인
+            </a>
+          </li>
+
+          <li
+            class="px-3 py-2"
+            style="border: 3px solid #fd0166; border-radius: 10px"
+          >
+            <a
+              class="font-semibold text-gray-800 px-3 py-2"
+              href="/signin"
+              id="text_signin"
+              >회원가입</a
+            >
+          </li>
+        </ul>
+        {% else %}
+        <ul class="flex items-center justify-end space-x-3 mb-0">
+          <li
+            class="px-3 py-2"
+            style="border: 3px solid #fd0166; border-radius: 10px"
+          >
+            <a
+              class="font-semibold text-gray-800 px-3 py-2"
+              href="#"
+              id="text_user"
+              >{{email}}님</a
+            >
+          </li>
+
+          <li
+            class="px-3 py-2"
+            style="border: 3px solid #fd0166; border-radius: 10px"
+          >
+            <a
+              class="font-semibold text-gray-800 px-3 py-2"
+              href="/logout"
+              id="text_logout"
+              >로그아웃</a
+            >
+          </li>
+        </ul>
+        {% endif %}
+      </div>
     </nav>
     {% block content %} {% endblock %}
   </body>
