@@ -13,23 +13,25 @@ from urllib import parse
 from batch.common.custom_logger import get_custom_logger
 import re
 
-logger = get_custom_logger("crawl")
 
-options = webdriver.ChromeOptions()
-options.add_argument('--headless')
-options.add_argument('--no-sandbox')
-options.add_argument('--window-size=1920,1080')
-# options.add_argument('--disable-gpu')
-options.add_argument(
-    "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36")
-options.add_argument("lang=ko_KR")
-
-# driver = webdriver.Chrome(options=options)
-
-driver = webdriver.Chrome()
 
 def main():
     try:
+        logger = get_custom_logger("crawl")
+
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--window-size=1920,1080')
+        # options.add_argument('--disable-gpu')
+        options.add_argument(
+            "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36")
+        options.add_argument("lang=ko_KR")
+
+        # driver = webdriver.Chrome(options=options)
+
+        driver = webdriver.Chrome()
+
         start_time = time.time()
         url = "https://namu.wiki/w/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98%20%EB%8C%80%ED%95%99%EA%B5%90%20%EB%AA%A9%EB%A1%9D"
         logger.info(f"검색 시작")
