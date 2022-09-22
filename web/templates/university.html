@@ -43,7 +43,7 @@
             id="universityInput"
             class="appearance-none bg-transparent border-none w-full text-gray-700 py-1 px-0 leading-tight font-semibold justify-start"
             type="text"
-            placeholder="대학명을 입력하세요."
+            placeholder="대학명을 입력하세요. ex)00대학교"
             aria-label="Full name"
             style="width: 80%"
             value="{{university}}"
@@ -82,7 +82,7 @@
                 <div class="text-2xl flex justify-start">
                   {{university.university_name}}
                 </div>
-                <div class="text-xl flex justify-end"><a href="">등록</a></div>
+                <div class="text-xl flex justify-end"><a href="/{{university.university_name}}/save">등록</a></div>
               </li>
 
               {% endfor %}

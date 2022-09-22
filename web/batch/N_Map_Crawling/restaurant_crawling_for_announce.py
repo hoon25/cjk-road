@@ -19,7 +19,7 @@ def main(key_word):
         logger = get_custom_logger("crawl")
 
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         # options.add_argument('--window-size=1920,1080')
         # # options.add_argument('--disable-gpu')
@@ -99,7 +99,7 @@ def time_wait(driver, num, code):
             EC.presence_of_element_located((By.CSS_SELECTOR, code)))
     except:
         logger.exception(code, '태그를 찾지 못하였습니다.')
-        driver.quit()
+        # driver.quit()
     return wait
 
 

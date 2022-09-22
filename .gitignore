@@ -1,4 +1,5 @@
 cjk-env/
 batch/log
 web/log
+web/batch/log/
 web/batch/log
