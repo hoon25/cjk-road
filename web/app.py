@@ -102,6 +102,8 @@ def register():
 
 
 @app.route('/user_list', methods=["GET"])
+# @jwt_required(locations=['cookies'])
+@jwt_required()
 def user_list():
     user_list = list(db.user.find({}, {'_id': 0}))
     return jsonify({'result': 'success', 'msg': 'Connected', 'data': user_list})
